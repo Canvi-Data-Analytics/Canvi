@@ -55,6 +55,27 @@
             </section>
 
             <section class="module parallax parallax-3">
+                <h2>Monitoramento</h2>
+            </section>
+
+            <section class="module content">
+                <div class="container monitoring">
+                    <div class="boxes">
+                        <div class="box" style="margin-right: 45px;">
+                            <img src="../assests/images/drone-canavial.png" alt="Imagem de drone pelo canavial">
+                            <h2 style="margin:0 ;">Drone</h2>
+                            <p>O monitoramento será feito via drone, nele será acoplado um sensor de umidade e temperatura, para que assim seja possível obter dados com precisão do Canavial.</p>
+                        </div>
+                        <div class="box">
+                            <img src="../assests/images/canvial-dentro.png" alt="Imagem dentro do canavial">
+                            <h2 style="margin:0 ;">Pilar</h2>
+                            <p>Visando uma melhor precisão da umidade e temperatura do solo, também serão implementados pilares com o sensor de monitoramento, para poder serem capturados dados mais precisos. Os pilares tem no máximo  60cm, e são feitos de um material duradouro e de fácil implementação e retirada.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-4">
                 <h2>Simule Aqui</h2>
             </section>
 
@@ -74,9 +95,36 @@
                     <br>
                     <button class="button1" onclick="calc()">Calcule o novo rendimento</button>
                     <div class="box_message">
-                        <div id="div_msg" class="msg"></div>
+                        <div id="div_msg" class="msg">
+                            <div id="more80" class="more80">
+                                <h2>A Canvi Data Analytics tem um comprimsso com você!</h2>
+                                <p>Seu Canavial tem uma ótima porcentagem de desenvolvimento, e nós vamos te ajudar
+                                    a manter essa porcentagem.<br>
+                                    Conosco seu faturamento estará sempre alto!<br>
+                                    Se interessou? Entre em contato!</p>
+                                <br><button>Fale Conosco</button>
+                            </div>
+                            <div id="simulator" class="simulator">
+                                <h2>Novo GANHO!</h2>
+
+                                <p>Com nossa solução garantimos <span id="percent"></span> de
+                                    aproveitamento em todo o
+                                    canavial<br>
+
+                                    Com isso seu novo faturamento é de <span id="yield"></span>, por
+                                    hectare, ou seja uma adição de 20%<br>
+                                    Ao todo você ganha <span id="yieldTotal"></span> usando a nossa
+                                    solução!</p>
+
+                                <h2>Redução de PERDAS!</h2>
+
+                                <p>Usando nossa solução você deixa de perder <span id="loss"></span><br>
+                                    Se interessou? Entre em contato!</p>
+
+                                <br><br><button>Fale Conosco</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </section>
             <footer>Todos os direitos reservados ©</footer>
         </main>
@@ -97,42 +145,19 @@
         var faturamenTototal = hectares * faturamento20
         var perdas = faturamenTototal - faturamentoAntigo
 
-        if (porcentagem >= 80) {
-            div_msg.innerHTML = `
-<<<<<<< HEAD
-            <div style="padding: 10px 10px 10px 10px; background-color:#f2f2f2;color:#000">
-=======
-            <div style="padding: 10px 10px 10px 10px; background-color:#f2f2f2;color:black">
->>>>>>> 3d9e5398413cfee830e5e7ad1c090482b44f3311
-            
-            <h2>A Canvi Data Analytics tem um comprimsso com você!</h2>
-            
-            <p>Seu Canavial tem uma ótima porcentagem de desenvolvimento, e nós vamos te ajudar a manter essa porcentagem.<br>
-            Conosco seu faturamento estará sempre alto!<br>
-            Se interessou? Entre em contato!</p>
-            
-            <br><button>Fale Conosco</button>
-            </div>`
+        if (ipt_porcentagem.value >= 80) {
+            more80.style.display = 'block'
+            simulator.style.display = 'none'
         }
-        else if (ipt_porcentagem.value == 0) {
-            alert(`Insira os campos necessários para que o cálculo seja efetuado`)
+        else if (porcentagem <= 0 || hectares <= 0 || faturamento <= 0) {
+            alert(`Insira os campos corretamente para que o cálculo seja efetuado`)
         } else {
-            div_msg.innerHTML = `
-        <div style="padding: 10px 10px 10px 10px; background-color:#f2f2f2;color:#000">
-        <h2>Novo GANHO!</h2>
-
-        <p>Com nossa solução garantimos <span>${porcentagem}%</span> de aproveitamento em todo o canavial<br>
-
-        Com isso seu novo faturamento é de <span>R$${faturamento20.toFixed(2)}</span>, por hectare, ou seja uma adição de 20%<br>
-        Ao todo você ganha <span>R$${faturamenTototal.toFixed(2)}</span> usando a nossa solução!</p>
-
-        <h2>Redução de PERDAS!</h2>
-
-        <p>Usando nossa solução você deixa de perder <span>R$${perdas.toFixed(2)}!</span><br>
-        Se interessou? Entre em contato!</p>
-
-        <br><br><button>Fale Conosco</button>
-        </div>`
+            percent.innerHTML = `${porcentagem}%`
+            yield.innerHTML = `R$${faturamento20.toFixed(2)}`
+            yieldTotal.innerHTML = `R$${faturamenTototal.toFixed(2)}`
+            loss.innerHTML = `R$${perdas.toFixed(2)}!`
+            simulator.style.display = 'block'
+            more80.style.display = 'none'
         }
     }
 
