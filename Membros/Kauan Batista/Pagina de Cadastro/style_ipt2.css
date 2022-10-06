@@ -1,0 +1,38 @@
+/* INPUTS 2 */
+section.form .container .inputs{
+    /* border: solid 3px red; */
+    display: flex;
+    justify-content: space-around;
+}
+
+section.form .container .inputs_2{
+    /* border: solid pink 4px; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+section.form .container .inputs_2 span{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+section.form .container .inputs_2 input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: #5A9C67 1px solid;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+section.form .container .inputs_2 select{
+    margin-top: 10px;
+    border: none;
+}
+

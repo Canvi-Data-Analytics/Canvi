@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.all-container{
+    display: flex;
+}
+
+/* IMAGEM LATERAL ESQ */
+section.bg .bg-img{
+    height: 100vh;
+    width: 100%;
+    background-image: url('Assets/canavial.jpg');
+    background-size: cover;
+    background-position: -450px ;
+    /* border: solid 1px red; */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
+}
+
+section.bg {
+    /* border:solid 5px green; */
+    height: 100vh;
+    width: 45%;
+}
+
+/* CONTEUDO DIREITA */
+section.form{
+    /* border: 3px solid red; */
+    height: 100vh;
+    width: 55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+}
+
+section.form .container{
+    /* border: blue solid 3px; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* logo */
+
+section.form .container img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+    align-self: center;
+}
+/* TITULOS DOS INPUTS */
+.title h1{
+    color: #5A9C67;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.title h4{
+    font-weight: 700;
+    color: darkgray;
+    font-size: small;
+}
+
+/* INPUTS */
+section.form .container .inputs{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+section.form .container .inputs span{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+section.form .container .inputs input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: #5A9C67 1px solid;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+/* BOTÃO */
+
+.container .btn {
+    display: flex;
+    /* border: #5A9C67 solid 3px; */
+    justify-content: center;
+}
+
+button {
+    padding: 10px 150px;
+    border-radius: 10px;
+    border: none;
+    background-color: #5A9C67;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;;
+}
+
+button:hover{
+    background-color: #3f9b50;
+}
+
+button:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+/* Link criar conta */
+
+section.form .container .new{
+    display: flex;
+    /* border: solid 3px red; */
+    justify-content: center;
+    margin-top: 15px;
+}
+
+section.form .container .new span a{
+    text-decoration: none;
+    text-decoration: underline;;
+    color: #5A9C67;
+    font-weight: lighter;;
+    font-size: 12px;
+}
+
+/* Link de voltar ao menu */
+#link_voltar {
+    text-decoration: none;
+    color: white;
+    background-color: #5A9C67;
+    padding:15px;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    border-radius: 5px;
+}
+
+#link_voltar:hover{
+    background-color: #3f9b50;
+}
+
+#link_voltar:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+/* footer */
+
+footer{
+    display: flex;
+    height: 5vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #4b4b4b;
+}
