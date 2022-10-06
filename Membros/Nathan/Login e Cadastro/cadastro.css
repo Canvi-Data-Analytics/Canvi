@@ -1,0 +1,162 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+}
+
+.banner{
+    margin: 0;
+    background-image: url("canavial.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 40%;
+}
+
+.banner .container{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.banner .container span{
+    width: 100%;
+    color: #FFF;
+    font-size: 50px;
+    text-align: center;
+}
+
+.caixa_formulario{
+    width: 60%;
+}
+
+.caixa_formulario .container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.topo_texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+img{
+    width: 110px;
+    align-self: flex-start;
+}
+
+.topo h1{
+    margin: 5% 0 0 0;
+    color: #5A9C67;
+}
+
+.topo .texto{
+    color: #8D8D8D;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+.formularios_cadastro{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.formulario{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+button{
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 50px;
+    width: 40%;
+    align-self: center;
+    background-color: #5A9C67;
+    color: #FFF;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #63c777;
+}
+
+.formulario input{
+    padding: 5px 25px;
+    border: transparent;
+    border-bottom: 1px solid #5A9C67;
+    font-size: 17px;
+    outline: 0;
+}
+
+.formulario span{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.formulario2{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.formulario2 input{
+    padding: 5px 25px;
+    border: transparent;
+    border-bottom: 1px solid #5A9C67;
+    font-size: 17px;
+    outline: 0;
+}
+
+.formulario2 span{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.cadastro{
+    align-self: center;
+}
+
+.cadastro a{
+    text-decoration: underline;
+    color: #5A9C67;
+    font-weight: 550;
+}
+
+.cadastro a:hover{
+    color: #63c777;
+}
+
+
+@media screen and (max-width: 1600px) { 
+    .formulario{
+        width: 280px;
+    }
+    .formulario2{
+        width: 280px;
+    }
+}

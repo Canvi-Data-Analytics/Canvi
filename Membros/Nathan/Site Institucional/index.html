@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvi Data</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="box">
+                <img src="LOGO.png" alt="logo">
+                <h2>Canvi Data Analytics</h2>
+            </div>
+            <div class="box2">
+                <ul class="navbar">
+                    <li><a class="botao" href="">Login</a></li>
+                    <li><a class="botao" href="">Cadastre-se</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="parallax">
+        <div class="container">
+            <h1>Canvi Data Analytics</h1>
+        </div>
+    </section>
+
+    <section class="conteudo">
+        <div class="container">
+            <h2>Trabalhamos para aumentar sua receita</h2>
+            <p>A Canvi Data Analytics é uma empresa de monitoramento de umidade e temperatura em agronegócios de
+                médio
+                porte. Nós implantamos um sistema que é capaz de medir a variação climática no local desejado de
+                modo
+                que o agricultor possa ter o devido controle da sua plantação.
+            </p>
+        </div>
+    </section>
+
+    <section class="banner">
+        <div class="container">
+            <p>Quanto te renderá?</p>
+        </div>
+    </section>
+
+    <section class="aumentoFatu">
+        <div class="container">
+            <h2>Garantimos aproveitamento de 20%</h2>
+            <p>Sabemos que a parte mais importante da plantação é fase da brotação, 60% da é garantida, se houver
+                uma
+                boa umidade/temperatura, o que faz com que a aereção do solo seja maior. Com o nosso monitoramento
+                de
+                resposta rápida você pode assegurar no minímo 80% dessa fase.</p>
+            <button>Simule Aqui</button>
+        </div>
+    </section>
+
+    <section class="servicos">
+        <div class="container">
+            <div class="boxes">
+                <div class="box3">
+                    <img class="drone" src="image 4.png" alt="drone">
+                    <h2>MONITORAMENTO POR DRONE</h2>
+                    <p>O monitoramento será feito via drone, nele será acoplado um sensor de umidade e temperatura,
+                        para
+                        que assim seja possível obter dados com precisão do Canavial.</p>
+                </div>
+                <div class="box4">
+                    <img class="pilares" src="image 6.png" alt="pilares">
+                    <h2>MONITORAMENTO POR PILARES</h2>
+                    <p>Visando uma melhor precisão da umidade e temperatura do solo, também serão implementados
+                        pilares
+                        com o sensor de monitoramento, para poder serem capturados dados mais precisos. Os pilares
+                        tem
+                        no máximo 60cm, e são feitos de um material duradouro e de fácil implementação e retirada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="simulador">
+        <div class="container">
+            <h1>Simule Aqui!</h1>
+            Informe o aproveitamento em porcentagem por hectare: <input class="input" type="text" placeholder="99%"
+                id="ipt_porcentagem">
+            <br><br>
+            Informe o faturamento por hectare: <input class="input" type="text" placeholder="R$9999,99" id="ipt_faturamento">
+            <br><br>
+            Informe o número de hectares: <input class="input" type="text" id="ipt_hectares">
+            <br><br>
+            <button onclick="calc()" id="botaoSimul">Calcule o lucro com a solução</button>
+        
+        
+            <div id="div_msg" class="msg"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Todos os direitos reservados &copy</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+    function calc() {
+        var porcentagem = Number(ipt_porcentagem.value) + 20
+        var faturamento = Number(ipt_faturamento.value)
+        var hectares = Number(ipt_hectares.value)
+        var ganho_hectare = (faturamento * 1.2)
+        var ganho_total = (faturamento * 1.2) * hectares
+        var faturamento_sem = faturamento * hectares
+        var perdas = ganho_total - faturamento_sem
+
+        if (porcentagem >= 100) {
+            div_msg.innerHTML = `
+            <h2>A Canvi Data Analytics tem um compromisso com você!</h2>
+            
+            <p>Seu Canavial tem uma ótima porcentagem de desenvolvimento, e nós vamos te ajudar a manter essa margem.<br>
+            Vamos te ajudar a manter o seu faturamento alto!<br>
+            Se interessou? Entre em contato!</p>
+            
+            <br><button>Fale Conosco</button>
+            </div>`
+            
+        }
+        else if (ipt_porcentagem.value <= 0) {
+            alert(`Preencha os campos corretamente`)
+    
+        } else {
+
+            div_msg.innerHTML = `
+            <h2>Novo GANHO!</h2>
+            
+            <p>Com nossa solução garantimos <b>${porcentagem}%</b> de aproveitamento por hectare<br>
+                
+                Com isso seu novo faturamento é de <b>R$${ganho_hectare.toFixed(2)}</b>, por hectare, ou seja uma adição de <b>20%</b><br>
+                Em todo seu canavial você ganha <b>R$${ganho_total.toFixed(2)}</b> usando a nossa solução!</p>
+                
+                <h2>Redução de PERDAS!</h2>
+                
+                <p>Usando nossa solução você deixa de perder <b>R$${perdas.toFixed(2)}!</b><br>
+                Se interessou? Entre em contato!</p>
+                    
+                <button id="botaoSimul">Assine conosco</button>
+                </div><br>`
+        }
+
+    }  
+</script>

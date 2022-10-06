@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+}
+
+.banner{
+    margin: 0;
+    background-image: url("canavial.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 45%;
+}
+
+.caixa_formulario{
+    width: 55%;
+}
+
+.container{
+    width: 40%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img{
+    margin-top: 10%;
+    width: 110px;
+    align-self: center;
+}
+
+.container h1{
+    margin: 5% 0 0 0;
+    color: #5A9C67;
+}
+
+.container .texto{
+    color: #8D8D8D;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+.formulario{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario button{
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 50px;
+    width: 40%;
+    align-self: center;
+    width: 100%;
+    background-color: #5A9C67;
+    color: #FFF;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.formulario button:hover{
+    cursor: pointer;
+    background-color: #63c777;
+}
+
+.formulario input{
+    padding: 5px 25px;
+    border: transparent;
+    border-bottom: 1px solid #5A9C67;
+    font-size: 17px;
+    outline: 0;
+}
+
+.formulario span{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.cadastro{
+    margin-top: 75%;
+    align-self: center;
+}
+
+.cadastro a{
+    text-decoration: underline;
+    color: #5A9C67;
+    font-weight: 550;
+}
+
+.cadastro a:hover{
+    color: #63c777;
+}
