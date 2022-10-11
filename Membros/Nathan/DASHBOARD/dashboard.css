@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600&display=swap');
+
+
 body{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
+    font-family: 'Saira Condensed', sans-serif; 
 }
 
 main{
@@ -11,12 +15,13 @@ main{
 /* MENU DE NAVEGAÇÃO */
 
 menu{
-    background-color: #5A9C67;
+    background-color: #222222;
     list-style: none;
     height: 100vh;
     width: 13%;
     margin: 0;
     padding: 0;
+    color: #FFFF;
 }
 
 menu .container{
@@ -49,6 +54,7 @@ menu .container{
     font-size: 1.2vw;
     margin: 0;
     margin-top: 1.3vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -88,30 +94,17 @@ menu .container{
     width: 5vw;
 }
 
-.sel_plantacao, .sel_hectare{
-    background-color: transparent;
-    border: none;
-    color: #FFF;
-    font-size: 3vh;
-}
-
-.sel_plantacao:hover, .sel_hectare:hover{
-    color: #5A9C67;
-    background-color: #FFF;
-    cursor: pointer;
-}
-
-a.botao{
+a.sairBotao, .hectareBotao, .plantacaoBotao{
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 9px;
+    padding: 0.2vh 0.6vw;
+    border-radius: 1vw;
     color: #FFF;
     cursor: pointer;
     text-align: center;
     font-size: 3vh;
 }
 
-a.botao:hover{
+a.sairBotao:hover, .hectareBotao:hover, .plantacaoBotao:hover{
     background: #FFF;
     color: #5A9C67;
 }
@@ -172,6 +165,8 @@ section .container{
     width: 80%;
     text-align: center;
     border-bottom: 1px solid #5A9C67;
+    font-size: 3vw;
+    font-weight: 600;
 }
 
 .medidas{
@@ -190,28 +185,16 @@ section .container{
 }
 
 .destaque{
-    background-color: #FFFF;
+    background-color: #5A9C67;
+    color: #FFFF;
     width: 6vw;
     height: 13vh;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0.12vw 0.24vh rgb(36, 84, 84);
 }
-
-/* .tempUmi{
-    background-color: #FFFF;
-    width: 5vw;
-    height: 5vh;
-    border-radius: 100%;
-}
-
-.variacao{
-    background-color: #FFFF;
-    width: 5vw;
-    height: 5vh;
-    border-radius: 100%;
-} */
 
 .KPI .container{
     display: flex;
@@ -221,5 +204,6 @@ section .container{
 }
 
 .med span{
-    font-size: 1.3vw;
+    font-size: 1.9vw;
+    font-weight: 400;
 }

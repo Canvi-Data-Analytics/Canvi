@@ -29,28 +29,11 @@
                     </div>
 
                     <div class="box3">
-                        <select name="" class="sel_plantacao">
-                            <option value="">Plantações</option>
-                            <option value="">Plantação 1</option>
-                            <option value="">Plantação 2</option>
-                            <option value="">Plantação 3</option>
-                            <option value="">Plantação 4</option>
-                            <option value="">Plantação 5</option>
-                            <option value="">Plantação 6</option>
-                        </select>
-
-                        <select name="" class="sel_hectare">
-                            <option value="">Hectares</option>
-                            <option value="">Hectare 1</option>
-                            <option value="">Hectare 2</option>
-                            <option value="">Hectare 3</option>
-                            <option value="">Hectare 4</option>
-                            <option value="">Hectare 5</option>
-                            <option value="">Hectare 6</option>
-                        </select>
-                    
-                        <a class="botao" href="">Sair</a>
-
+                        <a class="plantacaoBotao" href="plantacao.html">Plantações</a>
+                        
+                        <a class="hectareBotao" href="hectare.html">Hectares</a>
+                        
+                        <a class="sairBotao" href="">Sair</a>
                     </div>
                 </div>
                 
@@ -64,7 +47,7 @@
             <div class="container">
 
                 <div class="titulo">
-                    <h1>Dashboard</h1>
+                    <span>Dashboard</span>
                 </div>
 
                 <div class="medidas">              
@@ -122,14 +105,14 @@
         labels: labels,
         datasets: [{
             label: 'Temperatura',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: '#00804b',
+            borderColor: '#6eaa5e',
             data: [30, 29, 28, 25, 22, 23],
         },
         {
             label: 'Umidade',
-            backgroundColor: 'rgb(135, 140, 250)',
-            borderColor: 'rgb(135, 140, 250)',
+            backgroundColor: '#004680',
+            borderColor: '#007b80',
             data: [80, 82, 80, 85, 85, 83],
         }
     ]
