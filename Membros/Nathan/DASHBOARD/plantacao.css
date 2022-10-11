@@ -1,16 +1,16 @@
-body{
+body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
 }
 
-main{
+main {
     display: flex;
 }
 
 /* MENU DE NAVEGAÇÃO */
 
-menu{
+menu {
     background-color: #5A9C67;
     list-style: none;
     height: 100vh;
@@ -19,7 +19,7 @@ menu{
     padding: 0;
 }
 
-menu .container{
+menu .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,21 +29,21 @@ menu .container{
     margin: auto;
 }
 
-.boxes{
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+.boxes {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.box{
+.box {
     text-align: center;
     width: 100%;
     margin-top: 8%;
 }
 
-.box h2{
+.box h2 {
     color: #FFF;
     font-weight: 100;
     font-size: 1.2vw;
@@ -52,12 +52,13 @@ menu .container{
 }
 
 
-.box2, .box3{
+.box2,
+.box3 {
     text-align: center;
     width: 80%;
 }
 
-.box2{
+.box2 {
     width: 100%;
     height: 13vh;
     display: flex;
@@ -66,13 +67,13 @@ menu .container{
     justify-content: space-around;
 }
 
-.box2 span{
+.box2 span {
     width: 100%;
     font-size: 1.3vw;
     margin-top: 1.5vh;
 }
 
-.box3{
+.box3 {
     height: 10vh;
     display: flex;
     flex-direction: column;
@@ -80,28 +81,30 @@ menu .container{
     justify-content: space-around;
 }
 
-.img_logo{
+.img_logo {
     width: 3vw;
 }
 
-.img_usuario{
+.img_usuario {
     width: 5vw;
 }
 
-.sel_plantacao, .sel_hectare{
+.sel_plantacao,
+.sel_hectare {
     background-color: transparent;
     border: none;
     color: #FFF;
     font-size: 3vh;
 }
 
-.sel_plantacao:hover, .sel_hectare:hover{
+.sel_plantacao:hover,
+.sel_hectare:hover {
     color: #5A9C67;
     background-color: #FFF;
     cursor: pointer;
-} 
+}
 
-a.botao{
+a.botao {
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 9px;
@@ -111,12 +114,12 @@ a.botao{
     font-size: 3vh;
 }
 
-a.botao:hover{
+a.botao:hover {
     background: #FFF;
     color: #5A9C67;
 }
 
-.copy{
+.copy {
     text-align: center;
     width: 100%;
     font-weight: 600;
@@ -125,18 +128,18 @@ a.botao:hover{
 
 /* GRÁFICOS */
 
-section{
+section {
     height: 100vh;
     width: 87%;
 }
 
-section .container{
+section .container {
     height: 100vh;
     width: 100%;
     background-color: #E5E5E5;
 }
 
-.topo{
+.topo {
     height: 10vh;
     width: 90%;
     margin: auto;
@@ -145,7 +148,7 @@ section .container{
     align-items: center;
 }
 
-.plant{
+.plant {
     height: 75vh;
     width: 90%;
     margin: auto;
@@ -155,22 +158,21 @@ section .container{
     justify-content: space-around;
 }
 
-.topo h1{
+.topo h1 {
     margin: 0;
 }
 
-.cards{
+.cards {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     height: 20vh;
 }
 
-.caixa{
-    width: 20vw;
+.caixa {
+    width: 30%;
     height: 32vh;
-    background-color: #FFFF;
-    border-radius: 40px;
+    border-radius: 10px;
     padding: 1.2vh;
     display: flex;
     flex-direction: column;
@@ -178,26 +180,62 @@ section .container{
     justify-content: space-around;
 }
 
-.caixa span{
+.caixa span {
     font-size: 1.2vw;
+    font-weight: bold;
+}
+.caixa .nomePlantacao{
+    margin-left: 1.2vw;
+    align-self: start;
+}
+.caixa :hover {
+    cursor: pointer;
+
 }
 
-.caixa img{
-    width: 15vw;
+.caixa img {
+    width: 21vw;
     height: 22vh;
+    border-radius: 5px;
 }
 
-.alerta{
+.caixa img:hover {
+    width: 21vw;
+    height: 22vh;
+    border-radius: 5px;
+}
+
+
+
+.zoom{
+    overflow: hidden; /* não deixa a imagem se expandir na hora do zoom*/
+    cursor: pointer;
+}
+.zoom img {
+	max-width: 100%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.zoom:hover img {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+
+.alerta {
     width: 8vw;
     background-color: #9F0000;
     padding: 0.8vh;
-    border-radius: 15px;
+    border-radius: 5px;
     text-align: center;
     color: #FFF;
     font-weight: 600;
 }
 
-.alerta2{
+.alerta2 {
     width: 8vw;
     background-color: #ffd700;
     padding: 0.8vh;
@@ -207,7 +245,7 @@ section .container{
     font-weight: 600;
 }
 
-.alerta3{
+.alerta3 {
     width: 8vw;
     background-color: #039F00;
     padding: 0.8vh;
