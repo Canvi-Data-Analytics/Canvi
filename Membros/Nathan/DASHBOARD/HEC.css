@@ -219,30 +219,19 @@ section .container {
 
 .alerta {
     width: 8vw;
+    padding: 0.8vh;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 600;
+    margin-top: 0.5vw;
+}
+#critico{
     background-color: #9F0000;
-    padding: 0.8vh;
-    border-radius: 15px;
-    text-align: center;
-    color: #FFF;
-    font-weight: 600;
 }
-
-.alerta2 {
-    width: 8vw;
+#emAlerta{
     background-color: #ffd700;
-    padding: 0.8vh;
-    border-radius: 15px;
-    text-align: center;
-    color: #FFF;
-    font-weight: 600;
 }
-
-.alerta3 {
-    width: 8vw;
+#ideal{
     background-color: #039F00;
-    padding: 0.8vh;
-    border-radius: 15px;
-    text-align: center;
-    color: #FFF;
-    font-weight: 600;
 }

@@ -198,6 +198,9 @@ section .container{
     justify-content: center;
     box-shadow: 0.12vw 0.24vh rgb(36, 84, 84);
 }
+#destaque{
+    margin-left: -0.5vw;
+}
 
 .KPI .container{
     display: flex;
