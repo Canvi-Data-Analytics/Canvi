@@ -53,13 +53,13 @@ menu .container{
     color: #FFF;
     font-weight: 100;
     font-size: 1.2vw;
+    margin: 0;
     margin-top: 0.5vh;
     font-family: 'Montserrat', sans-serif;
 }
 
 
-.box2,
-.box3 {
+.box2,.box3 {
     text-align: center;
     width: 80%;
 }
@@ -197,8 +197,6 @@ section .container {
     height: 22vh;
     border-radius: 5px;
 }
-
-
 
 .zoom{
     overflow: hidden; /* não deixa a imagem se expandir na hora do zoom*/

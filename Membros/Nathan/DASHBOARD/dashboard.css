@@ -38,11 +38,11 @@ menu .container{
 }
 
 .boxes{
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .box{
@@ -82,7 +82,7 @@ menu .container{
 }
 
 .box3{
-    height: 15vh;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
