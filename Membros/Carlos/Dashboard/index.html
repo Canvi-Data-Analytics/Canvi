@@ -10,26 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script href="script.js"></script>
     <title>DashBoard</title>
 </head>
 
 <body>
     <header>
-
         <nav>
-            <a class="logo" href=""><img src="../assests/images/LOGO_f_verdex.jpg" alt="Logo"></a>
+            <a class="logo" href=""><img src="../assests/images/LOGO_f_verdex.jpg" alt="LOGO"></a>
             <div class="itens">
                 <ul class="list">
                     <li class="aqui">Canviais</li>
-                    <li><a href="">Hectare</a></li>
+                    <li><a href="hectares.html">Hectare</a></li>
                 </ul>
                 <span class="nome-empresa">Nome Empresa</span>
                 <img src="../assests/images/usuário.png" alt="">
             </div>
-
         </nav>
-
     </header>
     <main>
         <center>
@@ -38,22 +34,22 @@
         <section class="dashboard-cards">
             <div class="cards">
                 <div class="chart chart1" id="chart1">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial1"></canvas><span class="variabel">Variações</span>
+                    <h2 id="">São Paulo</h2><canvas id="canavial1"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
                 <div class="chart chart2" id="chart2">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial2"></canvas>
+                    <h2 id="">Nome Canavial</h2><canvas id="canavial2"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
                 <div class="chart chart3" id="chart3">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial3"></canvas>
+                    <h2 id="">Nome Canavial</h2><canvas id="canavial3"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
                 <div class="chart chart4" id="chart4">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial4"></canvas>
+                    <h2 id="">Nome Canavial</h2><canvas id="canavial4"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
                 <div class="chart chart5" id="chart5">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial5"></canvas>
+                    <h2 id="">Nome Canavial</h2><canvas id="canavial5"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
                 <div class="chart chart6" id="chart6">
-                    <h3 id="">Nome Canavial</h3><canvas id="canavial6"></canvas>
+                    <h2 id="">Nome Canavial</h2><canvas id="canavial6"></canvas><a href="hectares.html"><span class="variabel">X Variações</span></a>
                 </div>
             </div>
         </section>
@@ -62,42 +58,26 @@
         <span>Todos os direitos reservados ©</span>
     </footer>
 </body>
-
 </html>
 <script>
-
 // GRÁFICO BARRA
 const labelsBar = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
+    '12/10',
+    '13/10',
+    '14/10',
+    '15/10',
 ];
 
 const dataBar = {
     labels: labelsBar,
     datasets: [{
-        label: 'Temperatura Média',
-        data: [22, 24, 27, 23, 20, 18],
+        label: 'Variações',
+        data: [22,12,32,40],
         backgroundColor:
-            'rgba(255, 99, 132)', 
-        borderColor:
-            'rgb(255, 99, 132)',
+            'rgb(0,0,255)',
         borderWidth: 1
     },
-    {
-        label: 'Umidade Média',
-        data:[90,89,93,87,88,82],
-        backgroundColor: 'rgba(255, 159, 64)',
-        borderColor:
-            'rgb(255, 159, 64)',
-        borderWidth: 1
-    }
-
-]
-};
+]};
 
 const configBar = {
     type: 'bar',
@@ -111,8 +91,33 @@ const configBar = {
     },
 };
 
-const myChartBars = new Chart(
+const myChartBars1 = new Chart(
     document.getElementById('canavial1'),
+    configBar
+);
+
+const myChartBars2 = new Chart(
+    document.getElementById('canavial2'),
+    configBar
+);
+
+const myChartBars3 = new Chart(
+    document.getElementById('canavial3'),
+    configBar
+);
+
+const myChartBars4 = new Chart(
+    document.getElementById('canavial4'),
+    configBar
+);
+
+const myChartBars5 = new Chart(
+    document.getElementById('canavial5'),
+    configBar
+);
+
+const myChartBars = new Chart(
+    document.getElementById('canavial6'),
     configBar
 );
 
