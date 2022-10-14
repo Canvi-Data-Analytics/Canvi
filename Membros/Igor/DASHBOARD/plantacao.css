@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+main {
+    display: flex;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+menu{
+    background-color: #222222;
+    list-style: none;
+    height: 100vh;
+    width: 13%;
+    margin: 0;
+    padding: 0;
+
+    color: #FFFF;
+
+}
+
+menu .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+}
+
+.boxes {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box {
+    text-align: center;
+    width: 100%;
+    margin-top: 8%;
+}
+
+.box h2 {
+    color: #FFF;
+    font-weight: 100;
+    font-size: 1.2vw;
+    margin: 0;
+    margin-top: 0.5vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.box2,.box3 {
+    text-align: center;
+    width: 80%;
+}
+
+.box2 {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.box2 span {
+    width: 100%;
+    font-size: 1.3vw;
+    margin-top: 1.5vh;
+}
+
+.box3 {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img_logo {
+    width: 3vw;
+}
+
+.img_usuario {
+    width: 5vw;
+}
+
+a.sairBotao, .hectareBotao, .plantacaoBotao{
+    text-decoration: none;
+    padding: 0.2vh 0.6vw;
+    border-radius: 1vw;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    font-size: 3vh;
+}
+
+a.sairBotao:hover, .hectareBotao:hover, .plantacaoBotao:hover{
+    background: #FFF;
+    color: #5A9C67;
+}
+
+.copy {
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.78vw;
+}
+
+/* GRÁFICOS */
+
+section {
+    height: 100vh;
+    width: 87%;
+}
+
+section .container {
+    height: 100vh;
+    width: 100%;
+    background-color: #E5E5E5;
+}
+
+.topo {
+    height: 10vh;
+    width: 90%;
+    margin: auto;
+    border-bottom: 0.2vh solid #5A9C67;
+    display: flex;
+    align-items: center;
+}
+
+.plant {
+    height: 75vh;
+    width: 90%;
+    margin: auto;
+    /* word-wrap: break-word; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.topo h1 {
+    margin: 0;
+    font-size: 2.5vw;
+    padding-top: 2vh;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 20vh;
+}
+
+.caixa {
+    width: 30%;
+    height: 32vh;
+    border-radius: 10px;
+    padding: 1.2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.caixa span {
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+.caixa .nomePlantacao{
+    margin-left: 1.2vw;
+    align-self: start;
+}
+.caixa :hover {
+    cursor: pointer;
+
+}
+
+.caixa img {
+    width: 21vw;
+    height: 22vh;
+    border-radius: 5px;
+}
+
+.caixa img:hover {
+    width: 21vw;
+    height: 22vh;
+    border-radius: 5px;
+}
+
+.zoom{
+    overflow: hidden; /* não deixa a imagem se expandir na hora do zoom*/
+    cursor: pointer;
+}
+.zoom img {
+	max-width: 100%;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.zoom:hover img {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.alerta {
+    width: 8vw;
+    padding: 0.8vh;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 600;
+    margin-top: 0.5vw;
+}
+#critico{
+    background-color: #9F0000;
+}
+#emAlerta{
+    background-color: #ffd700;
+}
+#ideal{
+    background-color: #039F00;
+}

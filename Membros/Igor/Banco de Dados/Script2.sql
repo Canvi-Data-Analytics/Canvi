@@ -14,6 +14,13 @@ create table Empresa(
     fkMatriz int
 );
 
+insert into empresa values
+(1, 'CARGILL AGRÍCOLA ALIMENTOS', '00.702.138/0001-32', '(89)2872-6895', '(73) 2385-1592', 'Luiz Barsi Filho', '2022-08-07', 'Luiz@gmail.com',  '212)IHSF*', 1),
+(2, 'COPERSUCAR ALIMENTOSS', '16.855.178/0001-54', '(95)3680-2353', '(55)3653-8777', 'Guilherme Affonso Ferreira', '2022-03-04', 'Guilherme@gmail.com',  'asa*¨H)K', 1),
+(3, 'CARGILL AGRÍCOLA ALIMENTOSS', '78.607.214/0001-18', '(49)2591-8256', '(63)3817-6592', 'Victor Adler', '2022-01-09', 'Victor@gmail.com',  'sad#%AS*', 3);
+
+
+
 alter table empresa add foreign key (fkMatriz) references Empresa (idEmpresa);
 
 create table localCana(

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600&display=swap');
+
+
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    font-family: 'Saira Condensed', sans-serif; 
+}
+
+main{
+    display: flex;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+menu{
+    background-color: #222222;
+    list-style: none;
+    height: 100vh;
+    width: 13%;
+    margin: 0;
+    padding: 0;
+    color: #FFFF;
+
+
+}
+
+menu .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+
+}
+
+.boxes{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box{
+    text-align: center;
+    width: 100%;
+    margin-top: 8%;
+}
+
+.box h2{
+    color: #FFF;
+    font-weight: 100;
+    font-size: 1.2vw;
+    margin: 0;
+    margin-top: 0.5vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.box2, .box3{
+    text-align: center;
+    width: 80%;
+}
+
+.box2{
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.box2 span{
+    width: 100%;
+    font-size: 1.3vw;
+    margin-top: 1.5vh;
+}
+
+.box3{
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img_logo{
+    width: 3vw;
+}
+
+.img_usuario{
+    width: 5vw;
+}
+
+a.sairBotao, .hectareBotao, .plantacaoBotao{
+    text-decoration: none;
+    padding: 0.2vh 0.6vw;
+    border-radius: 1vw;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    font-size: 3vh;
+}
+
+a.sairBotao:hover, .hectareBotao:hover, .plantacaoBotao:hover{
+    background: #FFF;
+    color: #5A9C67;
+}
+
+.copy{
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.78vw;
+}
+
+/* SECTIONS */
+
+section .container{
+    height: 100vh;
+    width: 100%;
+    background-color: #E5E5E5;
+}
+
+/* KPI */
+
+.KPI{
+    height: 100vh;
+    width: 34%;
+}
+
+/* GRÁFICOS */
+
+.chartJS{
+    height: 100vh;
+    width: 53%;
+}
+
+.chartJS .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.graficos{
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.linha{
+    width: 40vw;
+}
+
+.barra{
+    width: 40vw;
+}
+
+.titulo{
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid #5A9C67;
+    font-size: 3vw;
+    font-weight: 600;
+}
+
+.medidas{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    height: 80%;
+    width: 80%;
+}
+
+.med{
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    justify-content: space-around;
+}
+
+.destaque{
+    background-color: #5A9C67;
+    color: #FFFF;
+    width: 6vw;
+    height: 13vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.12vw 0.24vh rgb(36, 84, 84);
+}
+#destaque{
+    margin-left: -0.5vw;
+}
+
+.KPI .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.med span{
+    font-size: 1.9vw;
+    font-weight: 400;
+}
