@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("animations.css");
 
 * {
   padding: 0;
@@ -8,6 +9,7 @@
   font-weight: 500;
   text-decoration: none;
   outline: none;
+  overflow: hidden;
 }
 
 :root {
@@ -35,6 +37,7 @@ h2 {
   height: 200px;
   background: url("img/foto.png");
   background-size: cover;
+  animation: left 1.5s ease-in-out;
 }
 
 /* centralização dos inputs ao lado direito */
@@ -42,6 +45,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: right 1.5s ease-in-out;
 }
 
 /* centralização da logo */
@@ -52,6 +56,8 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, .09);
 }
 
 /* ajuste do texto abaixo do "entre" */
@@ -65,18 +71,30 @@ h2 {
   font-size: rem;
 }
 
+form {
+  opacity: 0;
+  animation: surgir 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
 /* estilizando os inputs */
 form input[type="email"],
 form input[type="password"] {
   width: 100%;
   display: block;
-  padding: 1rem;
+  padding-top: 1rem;
   margin-bottom: 1rem;
   border: none;
-  border-bottom: 1px solid var(--green);
+  border-bottom: 1px solid var(--grey);
   background: none;
   color: var(--grey);
   font-size: 0.875rem;
+  transition: all .1.5s ease-in;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-bottom: 1px solid var(--green);
 }
 
 label {
