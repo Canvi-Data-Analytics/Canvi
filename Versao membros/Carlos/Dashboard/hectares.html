@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hectare.css">
+    <title>DashBoard</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href=""><img src="../assests/images/LOGO_f_verdex.jpg" alt="LOGO"></a>
+            <div class="itens">
+                <ul class="list">
+                    <li><a href="index.html">Canviais</a></li>
+                    <li class="aqui"><a href="">Hectare</a></li>
+                </ul>
+                <span class="nome-empresa">Nome Empresa</span>
+                <img src="../assests/images/usuário.png" alt="">
+            </div>
+        </nav>
+    </header>
+    <main>
+        <center>
+            <h1>SUAS PLANTAÇÕES</h1>
+        </center>
+        <section class="dashboard-cards">
+            <div class="cards">
+                <div class="chart chart1" id="chart1">
+                    <h2 id="">Hectare 1</h2><canvas id="hectare1"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+                <div class="chart chart2" id="chart2">
+                    <h2 id="">Hectare </h2><canvas id="canavial2"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+                <div class="chart chart3" id="chart3">
+                    <h2 id="">Hectare </h2><canvas id="canavial3"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+                <div class="chart chart4" id="chart4">
+                    <h2 id="">Hectare </h2><canvas id="canavial4"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+                <div class="chart chart5" id="chart5">
+                    <h2 id="">Hectare </h2><canvas id="canavial5"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+                <div class="chart chart6" id="chart6">
+                    <h2 id="">Hectare </h2><canvas id="canavial6"></canvas><button class="variabel open">X
+                        Variações</button>
+                </div>
+            </div>
+        </section>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">X</span>
+                <h2>Resumo do Hectare</h2>
+                <div class="charts">
+                    <div class="chart-modal">
+                        <div class="modal-umidade">
+                            <canvas id="hectare1-umidade"></canvas>
+                        </div>
+                        <div class="modal-temperatura">
+                            <canvas id="hectare1-temperatura"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <span>Todos os direitos reservados ©</span>
+    </footer>
+</body>
+
+</html>
+<script>
+    // GRÁFICO LINHA TEMPERATURA/UMIDADE CARD
+    const labelsCard = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ];
+    const dataCard = {
+        labels: labelsCard,
+        datasets: [{
+            label: 'Temperatura',
+            data: [30, 29, 28, 31, 35],
+            borderColor: 'rgb(0, 0, 255)',
+            backgroundColor: 'rgb(0, 0, 255)'
+        },
+        {
+            labels: labelsCard,
+            label: 'Umidade',
+            data: [70, 65, 74, 70, 69],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgb(75, 192, 192)'
+        }]
+    };
+    const configCard = {
+        type: 'line',
+        data: dataCard,
+    };
+    const myChartCard = new Chart(
+        document.getElementById('hectare1'),
+        configCard
+    );
+
+    //GRÁFICO UMIDADE MODAL
+    const labelsModalUmidade = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ];
+    const dataModalUmidade = {
+        labels: labelsModalUmidade,
+        datasets: [{
+            label: 'Umidade',
+            data: [70, 65, 78, 55, 69],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgb(75, 192, 192)'
+        }]
+    }
+    const configModalUmidade = {
+        type: 'line',
+        data: dataModalUmidade,
+    };
+    const myChartModalUmidade = new Chart(
+        document.getElementById('hectare1-umidade'),
+        configModalUmidade
+    );
+
+    //GRÁFICO MODAL TEMPERATURA
+    const labelsModalTemperatura = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ]
+    const dataModalTemperatura = {
+        labels: labelsModalTemperatura,
+        datasets: [{
+            label: 'Temperatura',
+            data: [34, 29, 30, 37, 32],
+            borderColor: 'rgb(0, 0, 255)',
+            backgroundColor: 'rgb(0, 0, 255)'
+        }]
+    }
+    const configModalTemperatura = {
+        type: 'line',
+        data: dataModalTemperatura,
+    };
+    const myChartModalTemperatura = new Chart(
+        document.getElementById('hectare1-temperatura'),
+        configModalTemperatura
+    );
+
+</script>
+<script>
+
+    var modal = document.querySelector('.modal')
+    var open = document.querySelector('.open')
+    var closeButton = document.querySelector('.close-button')
+
+    function toggleModal() {
+        modal.classList.toggle('show-modal')
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal()
+        }
+    }
+
+    open.addEventListener('click', toggleModal)
+    closeButton.addEventListener('click', toggleModal)
+    window.addEventListener('click', windowOnClick)
+
+</script>

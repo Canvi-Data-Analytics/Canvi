@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <menu>
+            <div class="container">
+                <div class="boxes">
+                    <div class="box">
+                        <img class="img_logo" src="assets/LOGO.png" alt="logo">
+            
+                        <h2>Canvi Data Analytics</h2>
+                    </div>
+                    
+                    <div class="box2">    
+                        <img class="img_usuario" src="assets/perfil.png" alt="icone logado">
+                        
+                        <span>Nome empresa</span>
+                    </div>
+
+                    <div class="box3">
+                        <a class="plantacaoBotao" href="plantacao.html">Plantações</a>
+                        
+                        <a class="hectareBotao" href="hectare.html">Hectares</a>
+                        
+                        <a class="sairBotao" href="">Sair</a>
+                    </div>
+                </div>
+                
+                <div class="copy">
+                    <p>Todos os direitos reservados &copy</p>
+                </div>
+            </div>
+        </menu>
+
+        <section class="KPI">
+            <div class="container">
+
+                <div class="titulo">
+                    <span>Dashboard</span>
+                </div>
+
+                <div class="medidas">              
+                    
+                    <div class="med">
+                        <div class="destaque"><span>30°C</span></div>
+                        <span>Temperatura Máxima do dia</span>
+                    </div>
+                    
+                    <div class="med">
+                        <div class="destaque" id="destaque"><span>83%</span></div>
+                        <span>Umidade máxima do dia</span>
+                    </div>
+                
+                    <div class="med">
+                        <div class="destaque"><span>40</span></div>
+                        <span>Variações de temperatura</span>
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chartJS">
+            <div class="container">
+
+                <div class="graficos">
+                    <div class="linha">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    <div class="barra">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#00804b',
+            borderColor: '#6eaa5e',
+            data: [30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: '#004680',
+            borderColor: '#007b80',
+            data: [80, 82, 80, 85, 85, 83],
+        }
+    ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const config2 = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>
