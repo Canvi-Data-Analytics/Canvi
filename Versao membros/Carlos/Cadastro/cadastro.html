@@ -30,44 +30,42 @@
             <div class="container">
                 <div class="register">
                     <div class="part one">
-                        <span>Nome <span class="ast">*</span></span><br>
+                        <span>Razão Social<span class="ast">*</span></span><br>
                         <input type="text"><br>
-                        <span>E-mail <span class="ast">*</span></span><br>
+                        <span>E-mail<span class="ast">*</span></span><br>
                         <input type="email"><br>
                         <span class="pass">Senha <span class="ast">*</span></span><br>
                         <input type="password"><br>
                         <span class="pass">Confirme a senha <span class="ast">*</span></span><br>
                         <input type="password"><br>
-                        <span>CNPJ <span class="ast">*</span></span><br>
+                        <span>Ramal<span class="ast">*</span></span><br>
                         <input type="number"><br>
-                        <span>Razão social <span class="ast">*</span></span><br>
-                        <input type="text"><br>
-                        <span>Tipo cnpj <span class="ast">*</span></span><br>
+                        <span>CNPJ<span class="ast">*</span></span><br>
+                        <input type="number"><br>
+                        <span>Tipo CNPJ<span class="ast">*</span></span><br>
                         <select id="">
                             <option value="" disabled selected>Selecione o tipo</option>
                             <option value="matriz">Matriz</option>
                             <option value="filial">Filial</option>
-                        </select>
+                        </select><br>
                     </div>
                     <div class="part two">
-                        <span>Estado <span class="ast">*</span></span><br>
-                        <select id="">
-                            <option value="" disabled selected>Selecione um Estado</option>
-                            <option value="sp">São Paulo</option>
-                            <option value="mg">Mato grosso</option>
-                        </select><br><br><br>
-                        <span>Ramal <span class="ast">*</span></span><br>
-                        <input type="number"><br>
-                        <span>CEP <span class="ast">*</span></span><br>
-                        <input type="number"><br>
-                        <span>Número <span class="ast">*</span></span><br>
-                        <input type="number"><br>
-                        <span>Logradouro <span class="ast">*</span></span><br>
+                        <span>Responsável<span class="ast">*</span></span><br>
                         <input type="text"><br>
-                        <span>Bairro <span class="ast">*</span></span><br>
+                        
+                        <span>CEP<span class="ast">*</span></span><br>
+                        <input maxlength="9" id="cep" type="number" onblur="pesquisacep(this.value);"><br>
+                        
+                        <span>Número<span class="ast">*</span></span><br>
                         <input type="text"><br>
-                        <span>Cidade <span class="ast">*</span></span><br>
-                        <input type="text">
+                        <span >Logradouro<span class="ast">*</span></span><br>
+                        <input id="rua" type="text"><br>
+                        <span >Bairro <span class="ast">*</span></span><br>
+                        <input id="bairro" type="text"><br>
+                        <span >Cidade <span class="ast">*</span></span><br>
+                        <input id="cidade" type="text"><br>
+                        <span>Estado<span class="ast">*</span></span><br>
+                        <input id="uf" type="text" >
                     </div>
                 </div>
             </div>
@@ -77,3 +75,78 @@
     </section>
 </body>
 </html>
+<script>
+
+    function limpa_formulário_cep() {
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+
+
+            rua.disabled = "true"
+            bairro.disabled = "true"
+            cidade.disabled = "true"
+            uf.disabled = "true"
+           
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+                // document.getElementById('ibge').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+</script>
