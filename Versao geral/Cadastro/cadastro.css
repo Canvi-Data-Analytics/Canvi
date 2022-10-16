@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 938px;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: #f2f2f2;
@@ -73,7 +73,8 @@ button:active {
     background-color: rgb(76, 131, 87);
 }
 
-input,select {
+input,
+select {
     font-family: 'Poppins';
     letter-spacing: 0.02em;
     background-color: transparent;
@@ -83,7 +84,9 @@ input,select {
     height: 35px;
 }
 
-textarea:focus,input:focus,select:focus {
+textarea:focus,
+input:focus,
+select:focus {
     outline: 0;
 }
 
@@ -118,4 +121,9 @@ a {
     font-size: 36px;
     word-wrap: break-all;
     overflow-wrap: break-word;
+}
+
+#msgemail {
+    /* position: absolute; */
+    margin-top: -3vh;
 }

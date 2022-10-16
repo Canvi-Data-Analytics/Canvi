@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="../assests/images/LOGO.png">
+    <link rel="icon" href="./assests/images/LOGO.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../login/login.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="cadastro.css">
     <title>Cadastro</title>
 </head>
@@ -21,7 +21,7 @@
     <section class="module form">
         <div class="content">
             <div class="title">
-                <img class="logo" src="../assests/images/LOGO_f_verdex.jpg" alt="Logo">
+                <img class="logo" src="./assests/images/LOGO_f_verdex.jpg" alt="Logo">
                 <div class="text top">
                     <h1>Crie sua conta</h1><br>
                     <span class="sub">Inicie sua jornada com a gente</span>
@@ -33,7 +33,9 @@
                         <span>Razão Social<span class="ast">*</span></span><br>
                         <input type="text"><br>
                         <span>E-mail<span class="ast">*</span></span><br>
-                        <input type="email"><br>
+                        <input type="email" onblur="validacaoEmail(iptEmail)" id="iptEmail"  maxlength="60" size='65'>
+                        <div id="msgemail"></div>
+                        <br>
                         <span class="pass">Senha <span class="ast">*</span></span><br>
                         <input type="password"><br>
                         <span class="pass">Confirme a senha <span class="ast">*</span></span><br>
@@ -76,6 +78,31 @@
 </body>
 </html>
 <script>
+
+
+function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+    
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) &&
+        (usuario.search("@")==-1) &&
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) &&
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&
+        (dominio.indexOf(".") >=1)&&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+
+   
+    }
+    else{
+    document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+    
+    }
+    }
+
+
 
     function limpa_formulário_cep() {
             document.getElementById('rua').value=("");
