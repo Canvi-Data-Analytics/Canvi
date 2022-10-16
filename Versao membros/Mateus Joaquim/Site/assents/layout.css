@@ -1,0 +1,33 @@
+body {
+    background-color: var(--cor-background);
+    width: 100vw;
+    font-family: Poppins, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    overflow: -moz-hidden-unscrollable;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: none;
+}
+
+.l-grid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 10vw 15vw 55vw 20vw;
+    grid-template-rows: 80px 100px calc(90vh - 145px) 10vh;
+    grid-template-areas: "header header header header"
+                        " . aside metricas . "
+                        " . aside main ."
+                        "footer footer footer footer";
+    
+    gap: 50px;
+}
+
+h2 {
+    margin: 0;
+}
