@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href=""><img src="assets/img/logo.jpg" alt="LOGO"></a>
+            <div class="itens">
+                <ul class="list">
+                    <li><a href="index.html">Canviais</a></li>
+                    <li class="aqui">Hectare</li>
+                </ul>
+                <span class="nome-empresa">Nome Empresa</span>
+                <img src="assets/img/usuario.png" alt="">
+            </div>
+        </nav>
+    </header>
+    <div class="all-cards">
+        <!-- <select class="select" name="#" id="select">
+                <option value="" disabled selected>Hectares</option>
+                <option value="">São Paulo</option>
+                <option value="">Mato Grosso</option>
+                <option value="">Rio Preto</option>
+            </select> -->
+        <div class="cards">
+            <div class="primary-card">
+                <h2>IDEAL</h2>
+                <span>Até 10</span>
+            </div>
+            <div class="second-card">
+                <h2>ALERTA</h2>
+                <span>Entre 11 e 15</span>
+            </div>
+            <div class="third-card">
+                <h2>EMERGÊNCIA</h2>
+                <span>Maior que 16</span>
+            </div>
+        </div>
+        <section class="all-dashboard-cards">
+            <div class="dashboard-cards">
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="card" id="">
+                        <h2 id="">Hectare 1</h2>
+                        <div class="sub-card-1">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-1">10</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade de variação temperatura</span>
+                            <button class="btn-sub-card-2">72</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+    <!-- <main>
+        <center>
+            <h1>SUAS PLANTAÇÕES</h1>
+        </center>
+      
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">X</span>
+                <h2>Resumo do Hectare</h2>
+                <div class="charts">
+                    <div class="chart-modal">
+                        <div class="modal-umidade">
+                            <canvas id="hectare1-umidade"></canvas>
+                        </div>
+                        <div class="modal-temperatura">
+                            <canvas id="hectare1-temperatura"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> -->
+    <footer>
+        <span>Todos os direitos reservados ©</span>
+    </footer>
+</body>
+
+</html>
+<script>
+    // GRÁFICO LINHA TEMPERATURA/UMIDADE CARD
+    const labelsCard = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ];
+    const dataCard = {
+        labels: labelsCard,
+        datasets: [{
+            label: 'Temperatura',
+            data: [30, 29, 28, 31, 35],
+            borderColor: 'rgb(0, 0, 255)',
+            backgroundColor: 'rgb(0, 0, 255)'
+        },
+        {
+            labels: labelsCard,
+            label: 'Umidade',
+            data: [70, 65, 74, 70, 69],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgb(75, 192, 192)'
+        }]
+    };
+    const configCard = {
+        type: 'line',
+        data: dataCard,
+    };
+    const myChartCard = new Chart(
+        document.getElementById('hectare1'),
+        configCard
+    );
+
+    //GRÁFICO UMIDADE MODAL
+    const labelsModalUmidade = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ];
+    const dataModalUmidade = {
+        labels: labelsModalUmidade,
+        datasets: [{
+            label: 'Umidade',
+            data: [70, 65, 78, 55, 69],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgb(75, 192, 192)'
+        }]
+    }
+    const configModalUmidade = {
+        type: 'line',
+        data: dataModalUmidade,
+    };
+    const myChartModalUmidade = new Chart(
+        document.getElementById('hectare1-umidade'),
+        configModalUmidade
+    );
+
+    //GRÁFICO MODAL TEMPERATURA
+    const labelsModalTemperatura = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00'
+    ]
+    const dataModalTemperatura = {
+        labels: labelsModalTemperatura,
+        datasets: [{
+            label: 'Temperatura',
+            data: [34, 29, 30, 37, 32],
+            borderColor: 'rgb(0, 0, 255)',
+            backgroundColor: 'rgb(0, 0, 255)'
+        }]
+    }
+    const configModalTemperatura = {
+        type: 'line',
+        data: dataModalTemperatura,
+    };
+    const myChartModalTemperatura = new Chart(
+        document.getElementById('hectare1-temperatura'),
+        configModalTemperatura
+    );
+
+</script>
+<script>
+
+    var modal = document.querySelector('.modal')
+    var open = document.querySelector('.open')
+    var closeButton = document.querySelector('.close-button')
+
+    function toggleModal() {
+        modal.classList.toggle('show-modal')
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal()
+        }
+    }
+
+    open.addEventListener('click', toggleModal)
+    closeButton.addEventListener('click', toggleModal)
+    window.addEventListener('click', windowOnClick)
+
+</script>
