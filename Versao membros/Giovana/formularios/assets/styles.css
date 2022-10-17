@@ -16,6 +16,7 @@
   --green: #5a9c67;
   --white: #fafafa;
   --grey: #8d8d8d;
+  --black: #131313; 
 }
 
 body {
@@ -68,8 +69,9 @@ h2 {
   font-size: 1rem;
 }
 
-.right-side .copy .login-container {
-  font-size: rem;
+.input-container {
+  color: var(--grey);
+
 }
 
 form {
@@ -80,11 +82,15 @@ form {
 
 /* estilizando os inputs */
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="name"],
+form input[type="adress"],
+form input[type="number"],
+form input[type="text"] {
   width: 100%;
   display: block;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  /* padding-top: 1rem; */
+  margin-bottom: 2rem;
   border: none;
   border-bottom: 1px solid var(--grey);
   background: none;
@@ -93,16 +99,23 @@ form input[type="password"] {
   transition: all .1.2s ease-in;
 }
 
+form input[type="name"]:focus,
+form input[type="adress"]:focus,
+form input[type="number"]:focus,
+form input[type="text"]:focus,
 form input[type="email"]:focus,
 form input[type="password"]:focus {
   border-bottom: 1px solid var(--green);
+  color: var(--gray);
+  
 }
 
 label {
   display: block;
-  margin-bottom: -0.8rem;
+  margin-bottom: .3rem;
   font-size: 0.9rem;
 }
+
 
 .signup-btn {
   width: 100%;
@@ -112,7 +125,7 @@ label {
   font-size: 0.9rem;
   font-weight: 700;
   padding: 1.2rem;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
   border: none;
   border-radius: 10px;
   transition: 0.3s;
@@ -140,7 +153,7 @@ a {
   }
 
   .left-side,
-  .right-side{
+  .right-side {
     width: 50%;
     height: auto;
     display: flex;
@@ -148,6 +161,6 @@ a {
 
   .right-side img {
     width: 50%;
-    
+
   }
 }

@@ -4,19 +4,21 @@
   margin-bottom: 0.9rem;
 }
 
+form input[type="name"],
 form input[type="adress"],
 form input[type="number"],
 form input[type="text"] {
   width: 100%;
   display: block;
-  padding: 1rem;
-  margin-bottom: 1rem;
   border: none;
-  border-bottom: 1px solid var(--green);
+  border-bottom: 1px solid var(--grey);
   background: none;
   color: var(--grey);
   font-size: 0.875rem;
 }
+
+
+
 
 .divisão-1,
 .divisao-2,
