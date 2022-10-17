@@ -62,7 +62,7 @@
                         <select id="sel_tipo">
                             <option value="0" disabled selected>Selecione o tipo</option>
                             <option value="matriz">Matriz</option>
-                            <option value="filial">Filial</option>
+                            <option value="filial" selected>Filial</option>
                         </select>
                         <div id="msg_sel"></div>
                         <br>
@@ -80,7 +80,8 @@
                         <br>
                         
                         <span>Número residencial<span class="ast">*</span></span><br>
-                        <input type="text"><br>
+                        <input type="number" id="iptNumResidencial" onkeyup="validacaoNum()"><br>
+                        <div id="msg_num"></div>
                        
                         <span >Logradouro<span class="ast">*</span></span><br>
                         <input id="rua" type="text"><br>
@@ -97,12 +98,24 @@
                 </div>
             </div>
             <p class="text base"><span class="ast">*</span> Campos de preenchimento obrigatório</p>
-            <a href=""><button>Criar conta</button></a>
+            <button onclick="CriarConta()">Criar conta</button>
         </div>
     </section>
 </body>
 </html>
 <script>
+var permissaoGmail=0
+var permissaoSenha=0
+var permissaoConfirmaSenha=0
+var permissaoRamal=0
+var permissaoCNPJ=0
+var permissaoNumeroResidencial=0
+var permissaoCEP=0
+var permissaoResponsavel=0
+
+var numResidencial
+var  responsavel=""
+
 
 var verificar = 0
 
@@ -123,13 +136,14 @@ function validacaoEmail(field) {
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
         
         document.getElementById("msgemail").innerHTML="";
-   
+        permissaoGmail=1
     } else if(field.value==""){
         document.getElementById("msgemail").innerHTML="";
+
     }   
     else{
     document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
-    
+    permissaoGmail=0
     }
     }
 
@@ -141,16 +155,22 @@ function validacaoSenha () {
 
     if (senha != '' && senha.length < 8) {
         msgSenha.innerHTML = "<font color='red'>A senha deve conter menos que 8 caracteres</font>"
+        permissaoSenha=0
     } else {
         msgSenha.innerHTML = ""
+        permissaoSenha=1
     }
 
     if (confirmaSenha != '' && confirmaSenha.length < 8) {
         msg_confirmaSenha.innerHTML = "<font color='red'>A senha deve conter menos que 8 caracteres</font>"
+        permissaoConfirmaSenha=0
     } else {
         msg_confirmaSenha.innerHTML = ""
+        permissaoConfirmaSenha=1
+        
         if (senha != confirmaSenha) {
             msg_confirmaSenha.innerHTML = "<font color='red'>A senhas devem ser iguais</font>"
+            permissaoConfirmaSenha=0
         }
     }
 }
@@ -163,8 +183,10 @@ function validacaoRamal() {
 
     if (ramal != '' && ramal.length != 10) {
         msg_ramal.innerHTML = "<font color='red'>O ramal é composto por 10 dígitos</font>"
+        permissaoRamal=0
     } else {
         msg_ramal.innerHTML = ""
+        permissaoRamal=1
     }
 }
 
@@ -176,8 +198,10 @@ function validacaoCNPJ() {
 
     if(cnpj != '' && cnpj.length != 14) {
         msg_cnpj.innerHTML = "<font color='red'>O CNPJ é composto por 14 dígitos</font>"
+        permissaoCNPJ=0
     } else {
         msg_cnpj.innerHTML = ""
+        permissaoCNPJ=1
     }
 }
 
@@ -196,11 +220,21 @@ function validacaoSelect() {
 
 function validacaoResponsavel() {
     
-    var responsavel = ipt_respon.value
+    responsavel = ipt_respon.value
     if (responsavel == '' || isNaN(responsavel)) {
        msg_respon.innerHTML = ""
+       permissaoResponsavel=1
     } else {
        msg_respon.innerHTML = "<font color='red'>Responsável deve conter apenas letras</font>"
+       permissaoResponsavel=0
+    }
+}
+function validacaoNum() {
+
+    numResidencial = iptNumResidencial.value
+    if ( numResidencial.length>0) {
+        msg_num.innerHTML = ""
+       permissaoResponsavel=1
     }
 }
 
@@ -227,12 +261,13 @@ function validacaoResponsavel() {
             bairro.disabled = "true"
             cidade.disabled = "true"
             uf.disabled = "true"
-           
+            permissaoCEP =1
         } //end if.
         else {
             //CEP não Encontrado.
             limpa_formulário_cep();
             msg_CEP.innerHTML = "<font color='red'>CEP não encontrado.</font>";
+            permissaoCEP =0
         }
     }
         
@@ -273,6 +308,7 @@ function validacaoResponsavel() {
                 //cep é inválido.
                 limpa_formulário_cep();
                 msg_CEP.innerHTML = "<font color='red'>Formato de CEP inválido</font>";
+                permissaoCEP=0
             }
         } //end if.
         else {
@@ -280,5 +316,29 @@ function validacaoResponsavel() {
             limpa_formulário_cep();
         }
     };
+    function CriarConta(){
+        numResidencial = iptNumResidencial.value
+ 
+        if(responsavel.length==0){
+            msg_respon.innerHTML = "<font color='red'>O campo responsável não pode estar vazio</font>"
+            permissaoResponsavel=0
 
+        }
+        if(numResidencial.length==0){
+            msg_num.innerHTML = "<font color='red'>O campo número residencial não pode estar vazio</font>"
+            permissaoNumeroResidencial=0
+        }
+        else{
+            permissaoNumeroResidencial=1
+        }
+        if(
+        permissaoGmail ==1&& permissaoSenha==1&&permissaoConfirmaSenha==1&&
+        permissaoCNPJ==1&& permissaoCEP==1&& permissaoResponsavel==1 &&
+        permissaoRamal==1&&permissaoNumeroResidencial==1&&permissaoResponsavel==1){
+        window.location.href='file:///C:/Users/cidah/OneDrive/%C3%81rea%20de%20Trabalho/SP-TECH/SP-TECH-1-semestre/sprints/sprint2/Canvi/Versao%20membros/Carlos/Login/login.html'
+        }
+        else{
+            alert("preencha corretamente os campos")
+        }
+    }
 </script>

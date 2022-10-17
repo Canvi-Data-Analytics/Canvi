@@ -123,7 +123,7 @@ a {
     overflow-wrap: break-word;
 }
 
-#msgemail, #msgSenha, #msg_confirmaSenha, #msg_CEP, #msg_ramal, #msg_cnpj, #msg_sel, #msg_respon{
+#msgemail, #msgSenha, #msg_confirmaSenha, #msg_CEP, #msg_ramal, #msg_cnpj, #msg_sel, #msg_respon, #msg_num{
     /* position: absolute; */
     margin-top: -3vh;
 }
