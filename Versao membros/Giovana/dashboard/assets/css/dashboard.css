@@ -42,8 +42,6 @@ a {
   font-weight: bold;
 }
 
-
-
 .list a {
   color: var(--white);
   transition: 0.3s;
@@ -90,6 +88,17 @@ nav {
 
 h1 {
   margin: 30px auto;
+}
+
+h2 {
+  display: inline;
+  text-transform: uppercase;
+}
+
+#name-plantation {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 .all-cards,
@@ -139,13 +148,20 @@ h1 {
   row-gap: 3rem;
 }
 
-.card {
-  width: 363px;
-  height: 390px;
+.general-card {
   display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  width: 370px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   background-color: var(--white);
@@ -153,23 +169,25 @@ h1 {
 
 .sub-card-1,
 .sub-card-2 {
-  padding: 1rem;
-  /* background-color: #0179c7; */
+  width: 160px;
+  height: 206px;
+  background-color: #e9e7e7;
   border-radius: 15px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 20px;
 }
 
-.btn-sub-card-1, .btn-sub-card-2 {
+.btn-sub-card-1,
+.btn-sub-card-2 {
   background-color: var(--green-card);
   color: var(--white);
-  width: 150px;
-  height: 100px;
-  /* padding: 0.7rem 0.9rem; */
+  width: 100px;
+  height: 70px;
+  padding: 0.7rem 0.9rem;
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
@@ -177,10 +195,7 @@ h1 {
 
 .btn-sub-card-2 {
   background-color: var(--red-card);
-
 }
-
-
 
 footer {
   display: flex;
