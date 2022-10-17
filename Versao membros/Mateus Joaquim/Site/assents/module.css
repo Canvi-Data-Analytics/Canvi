@@ -1,0 +1,186 @@
+/* ------------------Estilização do Header--------------------- */
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.l-grid > .container {
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--verde-header-footer);
+    grid-area: header;
+    box-shadow: 0px 0px 10px black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.l-header {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.l-header > span {
+    font-size: 1.5rem;
+}
+
+.navbar {
+    margin: 0;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+}
+
+.button {
+    padding: 3px 15px 3px 15px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    background-color: var(--background-botao);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+.button:hover {
+    border: solid 3px white;
+    color:var(--verde-header-footer);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* ------------------Aside horizontal com as plantações--------------------- */
+
+.l-aside-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: metricas;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, .7);
+}
+
+.cards-metricas {
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------------Aside vertical com as plantações--------------------- */
+
+.l-aside-vertical {
+    display: flex;
+    grid-area: aside;
+}
+
+.l-aside-vertical > .container {
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, .7);
+    border-radius: 10px;
+}
+
+.l-aside-vertical > .container > .card-plan {
+    margin: 0;
+    background-color: gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 130px;
+    border: solid 1px rgba(0, 0, 0, 0);
+}
+
+/* ------------------Main e cards com hectares--------------------- */
+
+.l-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-area: main;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    gap: 50px;
+}
+
+.box {
+    height: 250px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+    border: solid 1px rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    display: flex;
+    padding: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .7);
+    justify-content: space-between;
+}
+
+.box:hover, .card-plan:hover {
+    cursor: pointer !important;
+    border: solid 1px rgba(0, 0, 0, .5) !important;
+}
+
+.box > h2 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+}
+
+.background-cards {
+    width: 100%;
+    height: 60%;    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.corpo-cards {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.l-cards-variacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: var(--vermelho);
+    padding: 5px;
+}

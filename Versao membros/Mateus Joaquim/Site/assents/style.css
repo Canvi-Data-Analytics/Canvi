@@ -1,0 +1,21 @@
+@import url("module.css");
+@import url("layout.css");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+:root {
+
+    /* cores da página */
+    --verde-header-footer: #58984B;
+    --cor-background: #D9D9D9;
+    --background-botao: rgba(0, 0, 0, .5);
+    --header-footer-alter: #4B5C29;
+    
+    /* cor das metricas - cards */
+    --verde-escuro: #039F00;
+    --laranja: #FF8A00;
+    --vermelho: #9F0000;
+    
+    /* cor kpys */
+    --azul-claro: #5090B8;
+    
+}

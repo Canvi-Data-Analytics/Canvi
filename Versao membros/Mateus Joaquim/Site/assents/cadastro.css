@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("animacoes.css");
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scrollbar-width: none;
+}
+
+.l-section {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-img {
+    width: 50vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3.125rem;
+    font-weight: 800;
+    color: white;
+
+    background-image: url("imgs/canavial.jpg");
+    background-size: cover;
+    background-position: center;
+
+    animation: imageFull 1.5s ease-in-out forwards;
+}
+
+.container-img span {
+    opacity: 0;
+    animation: surgir 1.5s ease-in-out forwards;
+    animation-delay: 1.2s;
+}
+
+.container {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+
+    animation: sugirJuntoImageFull ease-in-out 1.5s;
+}
+
+img {
+    width: 6.5625rem;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px 1px rgba(90,156,103, .2);
+    align-self: flex-start;
+}
+
+.l-logo-ao-texto {
+    margin-bottom: 1.25rem;
+    width: 27.25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*  */
+.container-login {
+    width: 27.25rem;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+
+    animation: surgir 1.5s ease-in-out forwards;
+    animation-delay: 1.2s;
+}
+
+h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: #5A9C67;
+}
+
+h3 {
+    margin: 0;
+
+    font-size: 1rem;
+    color: #8D8D8D;
+    font-weight: 50;
+}
+
+input {
+    margin-bottom: 2.1875rem;
+    width: 100%;
+    height: 1.875rem;
+
+    font-size: 1rem;
+    text-align: center;
+
+    border: none;
+    border-bottom: 2px solid rgba(90,156,103, .5);
+    outline: none;
+}
+
+select {
+    margin-bottom: 1.875rem;
+    width: 100%;
+    height: 1.875rem;
+
+    font-size: 1rem;
+    text-align: center;
+
+    border: none;
+    border-bottom: 2px solid rgba(90,156,103, .5);
+}
+
+select option {
+    font-size: 20px;
+}
+
+.posicao-tamanho-fonte {
+    margin: 0;
+
+    align-self: flex-start;
+    font-size: 1rem;
+}
+
+button {
+    margin-bottom: 3.125rem;
+    width: 26.875rem;
+    height: 4.0625rem;
+
+    background-color: #5A9C67;
+    color: white;
+    
+    font-size: 1.25rem;
+    
+    border: none;
+    border-radius: 1.25rem;
+    cursor: pointer;
+}
