@@ -1,7 +1,7 @@
 body {
     display: flex;
     width: 100%;
-    height: 938px;
+    height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: #f2f2f2;
@@ -11,7 +11,8 @@ body {
 /* SECTION DA IMAGEM */
 
 .module.image {
-    width: 47%;
+    height: 100vh;
+    width: 45%;
     background-image: url(./assests/images/canavial.jpg);
     background-position: 50% 50%;
     display: flex;
@@ -19,148 +20,121 @@ body {
     align-items: center;
 }
 
-.title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+.text.image {
+    text-align: center;
+    color: #FFFF;
+    font-weight: 500;
+    font-size: 1.9vw;
+}
+
+.module.form {
+    width: 55%;
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    width:100%;
-    margin: auto;
+    justify-content: space-evenly;
+    height: 100vh;
 }
 
-.module.form {
+.title {
+    height: 17vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    width: 50%;
 }
 
 img {
-    width: 100%;
-    height: 100%;
+    width: 5.8vw;
+    height: 12vh;
 }
 
-.module.form.content {
-    width: 100% !important;
+.text_Top{
+    margin-right: 1.4vw;
 }
-
-.container {
-    width: 90%;
-    margin: auto;
-}
-
-.logo {
-    width: 113px;
-    height: 118px;
-}
-
-.register {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin: auto;
-}
-
-input,select {
-    font-family: 'Poppins';
-    letter-spacing: 0.02em;
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 1px rgba(90, 156, 103, 1);
-    width: 435px;
-    height: 35px;
-    font-size: 16px;
-    margin-bottom: 37px;
-}
-
-
-/* ESTILIZAÇÃO DOS TEXTOS INPUTS SELECTS E BUTTON */
 
 h1 {
-    display: inline;
-    font-weight: 600;
-    font-size: 32px;
-    letter-spacing: 0.02em;
-    color: #5A9C67;
-}
-
-button {
-    cursor: pointer;
-    width: 435px;
-    height: 65px;
-    background: #5A9C67;
-    border-radius: 20px;
-    border: none;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    color: white;
-}
-
-button:active {
-    background-color: rgb(76, 131, 87);
-}
-
-input,
-select {
-    font-family: 'Poppins';
-    letter-spacing: 0.02em;
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 1px rgba(90, 156, 103, 1);
-    width: 300px;
-    height: 35px;
-}
-
-/* #uf{
+    font-size: 1.5vw;
     margin: 0;
-} */
-
-textarea:focus,
-input:focus,
-select:focus {
-    outline: 0;
-}
-
-select {
-    margin-bottom: 0;
-}
-
-a {
-    cursor: pointer;
     color: #5A9C67;
-    margin-bottom: 1vh;
-}
-
-.ast {
-    color: red;
-}
-
-.text.base {
-    margin: 0;
-    font-size: 16px;
-    color: rgba(141, 141, 141, 1)
 }
 
 .sub {
-    color: rgba(141, 141, 141, 1);
+    color: rgb(131, 127, 127);
 }
 
-.text.image {
-    color: white;
-    margin: 25px;
-    font-weight: 500;
-    font-size: 36px;
-    word-wrap: break-all;
-    overflow-wrap: break-word;
+.container {
+    height: 64vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-#msgemail, #msgSenha, #msg_confirmaSenha, #msg_CEP, #msg_ramal, #msg_cnpj, #msg_sel, #msg_respon, #msg_num, #msg_razao{
-    margin-top: -3vh;
+.register{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.partOne, .partTwo {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+input, select{
+    height: 4vh;
+    width: 20vw;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #5A9C67;
+    outline: 0;
+    font-size: 1vw;
+}
+
+.register span{
+    margin-top: 2vh;
+}
+
+.botao{
+    height: 19vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao p{
+    margin-bottom: 0.6vh;
+}
+
+.textBase {
+    font-size: 0.85vw;
+    color: rgb(233, 5, 5)
+}
+
+.ast {
+    color: rgb(233, 5, 5);
+}
+
+.botao button{
+    height: 6.9vh;
+    width: 22vw;
+    background-color: #5A9C67;
+    border: none;
+    border-radius: 1vw;
+    font-size: 1.1vw;
+    color: #FFFF;
+    letter-spacing: 0.02em;
+}
+
+button:hover {
+    background-color: #359e49;
+    cursor: pointer;
 }
