@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    width: 100%;
     height: 938px;
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -8,11 +10,30 @@ body {
 
 /* SECTION DA IMAGEM */
 
+.module.image {
+    width: 47%;
+    background-image: url(./assests/images/canavial.jpg);
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width:100%;
+    margin: auto;
 }
 
 .module.form {
@@ -45,6 +66,19 @@ img {
     justify-content: space-between;
     margin: auto;
 }
+
+input,select {
+    font-family: 'Poppins';
+    letter-spacing: 0.02em;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px rgba(90, 156, 103, 1);
+    width: 435px;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 37px;
+}
+
 
 /* ESTILIZAÇÃO DOS TEXTOS INPUTS SELECTS E BUTTON */
 
@@ -83,6 +117,10 @@ select {
     width: 300px;
     height: 35px;
 }
+
+/* #uf{
+    margin: 0;
+} */
 
 textarea:focus,
 input:focus,
@@ -123,7 +161,6 @@ a {
     overflow-wrap: break-word;
 }
 
-#msgemail, #msgSenha, #msg_confirmaSenha, #msg_CEP, #msg_ramal, #msg_cnpj, #msg_sel, #msg_respon, #msg_num{
-    /* position: absolute; */
+#msgemail, #msgSenha, #msg_confirmaSenha, #msg_CEP, #msg_ramal, #msg_cnpj, #msg_sel, #msg_respon, #msg_num, #msg_razao{
     margin-top: -3vh;
 }
