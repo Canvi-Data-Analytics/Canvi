@@ -170,7 +170,6 @@ h2 {
 
 .dashboard-cards {
   width: 100%;
-  /* margin: 0 auto; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: (2, 1fr);

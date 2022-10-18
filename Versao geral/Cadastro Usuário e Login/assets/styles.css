@@ -16,7 +16,7 @@
   --green: #5a9c67;
   --white: #fafafa;
   --grey: #8d8d8d;
-  --black: #131313; 
+  --black: #131313;
 }
 
 body {
@@ -82,14 +82,9 @@ form {
 
 /* estilizando os inputs */
 form input[type="email"],
-form input[type="password"],
-form input[type="name"],
-form input[type="adress"],
-form input[type="number"],
-form input[type="text"] {
+form input[type="password"] {
   width: 100%;
   display: block;
-  /* padding-top: 1rem; */
   margin-bottom: 2rem;
   border: none;
   border-bottom: 1px solid var(--grey);
@@ -100,14 +95,10 @@ form input[type="text"] {
 }
 
 form input[type="name"]:focus,
-form input[type="adress"]:focus,
-form input[type="number"]:focus,
-form input[type="text"]:focus,
-form input[type="email"]:focus,
 form input[type="password"]:focus {
   border-bottom: 1px solid var(--green);
   color: var(--gray);
-  
+
 }
 
 label {

@@ -15,13 +15,20 @@
   position: absolute;
   top: 53%;
   left: 53%;
-  width: 65%;
-  height: 76%;
+  width: 80%;
+  height: 90%;
   transform: translate(-50%, -50%);
   background-color: #fafafa;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
+
 
 .modal-general {
   display: flex;
@@ -39,8 +46,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50px;
-  background-color: yellowgreen;
-  
+  background-color: var(--orange-card);
 }
 
 .time-slow,
@@ -48,18 +54,15 @@
 .time-week {
   display: flex;
   flex-direction: row;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-left: 7rem;
 }
 
 .close-button {
-  float: right;
   width: 1.5rem;
-  line-height: 1.5rem;
   font-weight: 700;
-  text-align: center;
+  padding-left: 1000px;
   cursor: pointer;
-  border-radius: 0.25rem;
 }
 
 .show-modal {
@@ -85,5 +88,6 @@
 .charts {
   display: flex;
   flex-direction: column;
-  margin-left: 10rem;
+  margin-right: 2rem;
+  gap: 2rem;
 }

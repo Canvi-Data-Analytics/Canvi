@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="assets/img/logo-icon.png">
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <title>Canvi | Dashboard</title>
@@ -62,7 +63,9 @@
                             <button class="btn-sub-card-1 open">10</button>
                             <div class="modal">
                                 <div class="modal-content">
-                                    <span class="close-button">X</span>
+                                    <div class="teste">
+                                        <span class="close-button">&times;</span>
+                                    </div>
                                     <h2>Resumo do Hectare</h2>
                                     <div class="modal-general">
                                         <div class="modal-subtitle">
@@ -80,7 +83,7 @@
                                             </div>
                                             <div class="circle-week">
                                                 <div class="time-week">
-                                                    <p>Quantidade de horas variações da semana</p>
+                                                    <p>Variações durante a semana</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -240,8 +243,8 @@
         datasets: [{
             label: 'Umidade',
             data: [70, 65, 78, 55, 69],
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgb(75, 192, 192)'
+            borderColor: 'rgb(30, 132, 73)',
+            backgroundColor: 'rgb(30, 132, 73)'
         }]
     }
     const configModalUmidade = {
@@ -266,8 +269,8 @@
         datasets: [{
             label: 'Temperatura',
             data: [34, 29, 30, 37, 32],
-            borderColor: 'rgb(0, 0, 255)',
-            backgroundColor: 'rgb(0, 0, 255)'
+            borderColor: 'rgb(35, 155, 86 )',
+            backgroundColor: 'rgb(35, 155, 86 )'
         }]
     }
     const configModalTemperatura = {
