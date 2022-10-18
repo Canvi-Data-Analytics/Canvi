@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <title>Dashboard</title>
+    <title>Canvi | Dashboard</title>
 </head>
 
 <body>
@@ -60,6 +60,41 @@
                         <div class="sub-card-1">
                             <span>Quantidade <br> de variação <br> temperatura</span>
                             <button class="btn-sub-card-1 open">10</button>
+                            <div class="modal">
+                                <div class="modal-content">
+                                    <span class="close-button">X</span>
+                                    <h2>Resumo do Hectare</h2>
+                                    <div class="modal-general">
+                                        <div class="modal-subtitle">
+                                        </div>
+                                        <div class="modal-kpis">
+                                            <div class="circle-slow">
+                                                <div class="time-slow">
+                                                    <p>Quantidade de horas em desenvolvimento lento </p>
+                                                </div>
+                                            </div>
+                                            <div class="circle-null">
+                                                <div class="time-null">
+                                                    <p>Quantidade de horas sem desenvolvimento</p>
+                                                </div>
+                                            </div>
+                                            <div class="circle-week">
+                                                <div class="time-week">
+                                                    <p>Quantidade de horas variações da semana</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="charts">
+                                            <div class="modal-umidade">
+                                                <canvas id="hectare1-umidade"></canvas>
+                                            </div>
+                                            <div class="modal-temperatura">
+                                                <canvas id="hectare1-temperatura"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="sub-card-2">
                             <span>Quantidade <br> de variação <br> umidade</span>
@@ -67,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card" id="">
                     <center>
                         <h2>Hectare 1 -</h2>
@@ -152,41 +186,7 @@
             </div>
         </section>
     </div>
-    <main>
-        <center>
-            <h1>SUAS PLANTAÇÕES</h1>
-        </center>
 
-        <div class="modal">
-            <div class="modal-content">
-                <span class="close-button">X</span>
-                <h2>Resumo do Hectare</h2>
-                <div class="modal-general">
-                    <div class="modal-subtitle">
-
-                    </div>
-                    <div class="modal-kpis">
-                        <div class="time-slow">
-                            <span>Quantidade de horas em desenvolvimento lento:</span>
-                            <span>HORAS</span>
-                        </div>
-                        <div class="time-null">
-                            <span>Quantidade de horas sem desenvolvimento:</span>
-                            <span>HORAS</span>
-                        </div>
-                    </div>
-                    <div class="charts">
-                        <div class="modal-umidade">
-                            <canvas id="hectare1-umidade"></canvas>
-                        </div>
-                        <div class="modal-temperatura">
-                            <canvas id="hectare1-temperatura"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
     <footer>
         <span>Todos os direitos reservados ©</span>
     </footer>
