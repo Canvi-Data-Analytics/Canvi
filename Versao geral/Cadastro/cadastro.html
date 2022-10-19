@@ -57,8 +57,10 @@
                         
 
                         <span>Responsável<span class="ast">*</span></span>
-                        <input type="text" id="ipt_respon" onkeypress="return Onlychars(event)" onkeyup="validacaoResponsavel()">
+                         <input type="text" id="ipt_respon" onkeyup="validacaoResponsavel()"> 
                         <div id="msg_respon"></div>
+
+                        <!-- onkeypress="return Onlychars(event)" --> 
                         
                         
                         <span>Tipo CNPJ<span class="ast">*</span></span>
@@ -115,19 +117,15 @@
 
 <script>
 
-var permissaoRazao=0
-var permissaoGmail=0
-var permissaoSenha=0
-var permissaoConfirmaSenha=0
-var permissaoRamal=0
-var permissaoCNPJ=0
-var permissaoNumeroResidencial=0
-var permissaoCEP=0
-var permissaoResponsavel=0
-
-var numResidencial
-var responsavel=""
-
+var permissaoRazao = 0
+var permissaoGmail = 0
+var permissaoSenha = 0
+var permissaoConfirmaSenha = 0
+var permissaoRamal = 0
+var permissaoCNPJ = 0
+var permissaoNumeroResidencial = 0
+var permissaoCEP = 0
+var permissaoResponsavel = 0
 
 var verificar = 0
 
@@ -253,34 +251,22 @@ function validacaoCNPJ() {
 
 // VALIDAÇÃO RESPONSÁVEL
 
-function validacaoResponsavel() {
-    
-    responsavel = ipt_respon.value
-    if (responsavel == '' || isNaN(responsavel)) {
-       msg_respon.innerHTML = ""
-       permissaoResponsavel=1
-    } else {
-       msg_respon.innerHTML = "<font color='red'>Responsável deve conter apenas letras</font>"
-       permissaoResponsavel=0
-    }
-}
-
-function Onlychars(e)
-{
-    var tecla=new Number();
-    if(window.event) {
-        tecla = e.keyCode;
-    }
-    else if(e.which) {
-        tecla = e.which;
-    }
-    else {
-        return true;
-    }
-    if((tecla >= "48") && (tecla <= "57")){
-        return false;
-    }
-}
+// function Onlychars(e)
+// {
+//     var tecla=new Number();
+//     if(window.event) {
+//         tecla = e.keyCode;
+//     }
+//     else if(e.which) {
+//         tecla = e.which;
+//     }
+//     else {
+//         return true;
+//     }
+//     if((tecla >= "48") && (tecla <= "57")){
+//         return false;
+//     }
+// }
 
 // Validação Número
 
@@ -380,12 +366,20 @@ function validacaoNum() {
     
     
     function CriarConta(){
-        numResidencial = iptNumResidencial.value
+        var numResidencial = iptNumResidencial.value
+        var responsavel = ipt_respon.value
  
-        if(responsavel.length==0){
+        if(responsavel.length == 0){
             msg_respon.innerHTML = "<font color='red'>O campo responsável não pode estar vazio</font>"
-            permissaoResponsavel=0
-        } 
+            permissaoResponsavel = 0
+        } else if (isNaN(responsavel)) {
+            msg_respon.innerHTML = ""
+            permissaoResponsavel = 1
+        } else {
+            msg_respon.innerHTML = "<font color='red'>O campo responsável não pode ser um número</font>"
+            permissaoResponsavel = 0
+        }
+
         if(numResidencial.length==0){
             msg_num.innerHTML = "<font color='red'>O campo número residencial não pode estar vazio</font>"
             permissaoNumeroResidencial=0
