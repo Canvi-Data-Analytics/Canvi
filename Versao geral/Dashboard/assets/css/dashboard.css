@@ -211,7 +211,8 @@ h2 {
 }
 
 .btn-sub-card-1,
-.btn-sub-card-2 {
+.btn-sub-card-2,
+.btn-sub-card-3 {
   background-color: var(--green-card);
   color: var(--white);
   width: 100px;
@@ -224,6 +225,10 @@ h2 {
 
 .btn-sub-card-2 {
   background-color: var(--red-card);
+}
+
+.btn-sub-card-3 {
+  background-color: var(--orange-card);
 }
 
 footer {
