@@ -16,8 +16,8 @@
   --green: #5a9c67;
   --white: #fafafa;
   --grey: #8d8d8d;
-  --green-card: #039f00;
-  --orange-card: #ff8a00;
+  --green-card: #0eb80b;
+  --yellow-card: #9cd307cc;
   --red-card: #9f0000;
 
   --max-width: 1920px;
@@ -27,6 +27,7 @@ body {
   overflow-x: hidden;
   max-width: var(--max-width);
   background-color: var(--white);
+  height: 100vh;
 }
 
 header {
@@ -130,9 +131,9 @@ h2 {
 .all-cards,
 .all-dashboard-cards {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   padding: 40px 0;
 }
 
@@ -161,7 +162,7 @@ h2 {
 }
 
 .second-card {
-  background-color: var(--orange-card);
+  background-color: var(--yellow-card);
 }
 
 .third-card {
@@ -196,6 +197,10 @@ h2 {
   background-color: var(--white);
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .sub-card-1,
 .sub-card-2 {
   width: 160px;
@@ -228,7 +233,7 @@ h2 {
 }
 
 .btn-sub-card-3 {
-  background-color: var(--orange-card);
+  background-color: var(--yellow-card);
 }
 
 footer {
@@ -238,5 +243,4 @@ footer {
   color: white;
   background-color: var(--green);
   height: 5vh;
-  margin-top: 3vh;
 }

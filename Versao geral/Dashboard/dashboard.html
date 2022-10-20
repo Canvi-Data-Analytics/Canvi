@@ -8,10 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" href="assets/img/logo-icon.png">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" href="assets/css/modal.css">
     <title>Canvi | Dashboard</title>
 </head>
 
@@ -52,7 +50,7 @@
         </div>
         <section class="all-dashboard-cards">
             
-            <div class="dashboard-cards">
+            <div class="dashboard-cards" onclick="telaGrafico()">
 
                 <div class="card" id="cardMatoGrosso1">
                     <center>
@@ -63,43 +61,6 @@
                         <div class="sub-card-1">
                             <span>Quantidade <br> de variação <br> temperatura</span>
                             <button class="btn-sub-card-2 open">19</button>
-                            <div class="modal">
-                                <div class="modal-content">
-                                    <div class="teste">
-                                        <span class="close-button">&times;</span>
-                                    </div>
-                                    <h2>Resumo do Hectare</h2>
-                                    <div class="modal-general">
-                                        <div class="modal-subtitle">
-                                        </div>
-                                        <div class="modal-kpis">
-                                            <div class="circle-slow">
-                                                <div class="time-slow">
-                                                    <p>Quantidade de horas em desenvolvimento lento </p>
-                                                </div>
-                                            </div>
-                                            <div class="circle-null">
-                                                <div class="time-null">
-                                                    <p>Quantidade de horas sem desenvolvimento</p>
-                                                </div>
-                                            </div>
-                                            <div class="circle-week">
-                                                <div class="time-week">
-                                                    <p>Variações durante a semana</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="charts">
-                                            <div class="modal-umidade">
-                                                <canvas id="hectare1-umidade"></canvas>
-                                            </div>
-                                            <div class="modal-temperatura">
-                                                <canvas id="hectare1-temperatura"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="sub-card-2">
                             <span>Quantidade <br> de variação <br> umidade</span>
@@ -109,7 +70,7 @@
                 </div>
                 
                 
-                <div class="card" id="cardSaoPaulo1">
+                <div class="card" id="cardSaoPaulo1" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 1 -</h2>
                         <span id="id-plantation"> São Paulo</span>
@@ -125,7 +86,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardSaoPaulo2">
+                
+                
+                <div class="card" id="cardSaoPaulo2" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 2 -</h2>
                         <span id="id-plantation"> São Paulo</span>
@@ -141,7 +104,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardRioPreto3">
+                
+                
+                <div class="card" id="cardRioPreto3" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 3 -</h2>
                         <span id="id-plantation">Rio Preto</span>
@@ -157,7 +122,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardMatoGrosso2">
+                
+                
+                <div class="card" id="cardMatoGrosso2" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 1 -</h2>
                         <span id="id-plantation"> Mato Grosso</span>
@@ -173,7 +140,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardRioPreto1">
+                
+                
+                <div class="card" id="cardRioPreto1" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 1 -</h2>
                         <span id="id-plantation">Rio Preto</span>
@@ -189,7 +158,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardRioPreto2">
+                
+                
+                <div class="card" id="cardRioPreto2" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 2 -</h2>
                         <span id="id-plantation">Rio Preto</span>
@@ -205,7 +176,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="cardSaoPaulo3">
+                
+                
+                <div class="card" id="cardSaoPaulo3" onclick="telaGrafico()">
                     <center>
                         <h2>Hectare 3 -</h2>
                         <span id="id-plantation">São Paulo</span>
@@ -222,6 +195,7 @@
                     </div>
                 </div>
 
+     
             </div>
         </section>
     </div>
@@ -244,22 +218,6 @@
 
     var matogrosso1 = document.querySelector("#cardMatoGrosso1")
     var matogrosso2 = document.querySelector("#cardMatoGrosso2")
-
-    
-    var modal = document.querySelector('.modal')
-    var open = document.querySelector('.open')
-    var closeButton = document.querySelector('.close-button')
-    function toggleModal() {
-        modal.classList.toggle('show-modal')
-    }
-    function windowOnClick(event) {
-        if (event.target === modal) {
-            toggleModal()
-        }
-    }
-    open.addEventListener('click', toggleModal)
-    closeButton.addEventListener('click', toggleModal)
-    window.addEventListener('click', windowOnClick)
 
     var caixaCards= document.querySelector(".dashboard-cards")
     function MudaPlantacao(){
@@ -312,91 +270,9 @@
 
     }
 
-    // GRÁFICO LINHA TEMPERATURA/UMIDADE CARD
-    const labelsCard = [
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00'
-    ];
-    const dataCard = {
-        labels: labelsCard,
-        datasets: [{
-            label: 'Temperatura',
-            data: [30, 29, 28, 31, 35],
-            borderColor: 'rgb(0, 0, 255)',
-            backgroundColor: 'rgb(0, 0, 255)'
-        },
-        {
-            labels: labelsCard,
-            label: 'Umidade',
-            data: [70, 65, 74, 70, 69],
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgb(75, 192, 192)'
-        }]
-    };
-    const configCard = {
-        type: 'line',
-        data: dataCard,
-    };
-    const myChartCard = new Chart(
-        document.getElementById('hectare1'),
-        configCard
-    );
-
-    //GRÁFICO UMIDADE MODAL
-    const labelsModalUmidade = [
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00'
-    ];
-    const dataModalUmidade = {
-        labels: labelsModalUmidade,
-        datasets: [{
-            label: 'Umidade',
-            data: [70, 65, 78, 55, 69],
-            borderColor: 'rgb(30, 132, 73)',
-            backgroundColor: 'rgb(30, 132, 73)'
-        }]
+    function telaGrafico() {
+        window.location.href = `depois/dashboard.html`
     }
-    const configModalUmidade = {
-        type: 'line',
-        data: dataModalUmidade,
-    };
-    const myChartModalUmidade = new Chart(
-        document.getElementById('hectare1-umidade'),
-        configModalUmidade
-    );
-
-    //GRÁFICO MODAL TEMPERATURA
-    const labelsModalTemperatura = [
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00'
-    ]
-    const dataModalTemperatura = {
-        labels: labelsModalTemperatura,
-        datasets: [{
-            label: 'Temperatura',
-            data: [34, 29, 30, 37, 32],
-            borderColor: 'rgb(35, 155, 86 )',
-            backgroundColor: 'rgb(35, 155, 86 )'
-        }]
-    }
-    const configModalTemperatura = {
-        type: 'line',
-        data: dataModalTemperatura,
-    };
-    const myChartModalTemperatura = new Chart(
-        document.getElementById('hectare1-temperatura'),
-        configModalTemperatura
-    );
-
 </script>
 
 
