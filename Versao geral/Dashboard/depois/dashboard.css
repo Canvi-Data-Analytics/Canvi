@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+
+body{
+    margin: 0;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+menu{
+    background-color: #5a9c67;
+    list-style: none;
+    height: 10vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #FFFF;
+}
+
+menu .container{
+    height: 10vh;
+    display: flex;
+    width: 100%;
+}
+
+.boxes{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    width: 3vw;
+}
+
+.box2{
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+ .box2 span{
+    font-size: 0.9vw;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.img_logo{
+    height: 5.2vh;
+    width: 2.4vw;
+}
+
+.img_usuario{
+    height: 5.2vh;
+    width: 2.65vw;
+}
+
+a.sairBotao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 1vw;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 0.9vw;
+    height: 3.5vh;
+    width: 3vw;
+    text-transform: uppercase;
+}
+
+a.sairBotao:hover{
+    background: #FFF;
+    color: #5A9C67;
+}
+
+.copy{
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.78vw;
+}
+
+.conteudoGeral{
+    display: flex;
+}
+
+/* SECTIONS */
+
+section .container{
+    height: 90vh;
+    background-color: #FFF;
+}
+
+/* KPI */
+
+.KPI{
+    height: 90vh;
+    width: 50%;
+}
+
+/* GRÁFICOS */
+
+.chartJS{
+    height: 90vh;
+    width: 50%;
+}
+
+.chartJS .container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.graficos{
+    width: 40vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.linha, .barra{
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo{
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid #5A9C67;
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.medidas{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    height: 80%;
+    width: 80%;
+}  
+
+.med{
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    justify-content: flex-start;
+}
+
+.destaque{
+    background-color: #5A9C67;
+    color: #FFFF;
+    width: 6vw;
+    height: 13vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.12vw 0.24vh rgb(36, 84, 84);
+}
+
+.KPI .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.med span{
+    font-size: 1.35vw;
+    font-weight: 400;
+}
+
+.med .legenda{
+    margin-left: 0.6vw;
+    width: 18vw;
+}
+
+.med .legenda2{
+    display: flex;
+    align-items: center;
+    height: 85%;
+    border-left: solid 1px #005211;
+    padding-left: 2vw;
+}
