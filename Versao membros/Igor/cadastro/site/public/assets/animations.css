@@ -1,0 +1,29 @@
+@keyframes left {
+    from {
+        width: 100vw;
+    }
+
+    to {
+        width: 50vw;
+    }
+}
+
+@keyframes right {
+    from {
+        width: 0vw;
+    }
+
+    to {
+        width: 50vw;
+    }
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
