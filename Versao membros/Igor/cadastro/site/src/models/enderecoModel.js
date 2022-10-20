@@ -18,7 +18,7 @@ function cadastrar(cep, rua) {
     //  e na ordem de inserção dos dados.
     console.log(rua)
     var instrucao = `
-        INSERT INTO endereco (cep, numero, tipoEndereco) VALUES ('${cep}', '${rua}', 'Empresa');
+        INSERT INTO endereco (cep, numero, tipoEndereco, fkEmpresa) VALUES ('${cep}', '${rua}', 'Empresa', 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

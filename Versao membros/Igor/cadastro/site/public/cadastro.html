@@ -215,6 +215,7 @@ function cadastrarEmpresa() {
         var razaoSocialVar = ipt_razao.value;
         var ramalVar = ipt_ramal.value;
         var tipoCnpjVar = sel_tipo.value
+        var responsavelVar = ipt_respon.value;
 
         fetch("/empresas/cadastrar", {
             method: "POST",
@@ -227,7 +228,8 @@ function cadastrarEmpresa() {
                 cnpjServer: cnpjVar,
                 razaoServer: razaoSocialVar,
                 ramalServer: ramalVar,
-                tipoCnpjServer: tipoCnpjVar
+                tipoCnpjServer: tipoCnpjVar,
+                responsavelServer: responsavelVar
             })
         }).then(function (resposta) {
 

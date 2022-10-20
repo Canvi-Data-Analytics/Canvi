@@ -47,7 +47,7 @@ numero VARCHAR(8) NOT NULL,
 tipoEndereco VARCHAR(45) NOT NULL,
 fkEmpresa INT NOT NULL,
 CONSTRAINT ctfkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id),
-CONSTRAINT chktipoEndereco CHECK (tipoEndereco ('Empresa', 'Canavial', 'Ambos'))
+CONSTRAINT chktipoEndereco CHECK (tipoEndereco in ('Empresa', 'Canavial', 'Ambos'))
 );
 select
 	endereco.nomeCanavial 'Nome do Canavial',
@@ -100,57 +100,6 @@ select
 	dados.dtInspecao,
 	dados.fkSensor 'Sensor de referente'
 from capturaDado dados;
-
-
-
-/*--------------------------------------------------------------------------------------------------------------*/
-
-/* ------------ INSERT'S ------------- */
-INSERT INTO empresa values
-(null, 'Canvi Data', '495-735-708-079-89', '(11)5555-5000','Mateus Joaquim', curdate(), null),
-(null, 'Canavial Brasil', '345-936-327-943-48', '(11)3333-1000','Jonatas Kirin', curdate(), null),
-(null, 'FMC Corporation', '495-735-708-079-89', '(11)4444-7000','Kaique Fernandes', curdate(), null),
-(null, 'QualiCana', '495-735-708-079-89', '(11)2222-9000','Miguel Inkson', curdate(), null),
-(null, 'Doce Cana', '495-735-708-079-89', '(11)1111-5000','Marcos Joaquim', curdate(), null);
-
-INSERT INTO empresa values
-(null, 'Canvi Mata', '466-021-357-789-19', '(11)7777-7000','Rodrygo Batista', curdate(), 1),
-(null, 'Canvi Mata', '466-021-357-789-19', '(11)7777-7000','Rodrygo Batista', curdate(), 1),
-(null, 'Canvi Mata', '466-021-357-789-19', '(11)7777-7000','Rodrygo Batista', curdate(), 2),
-(null, 'Canvi Mata', '466-021-357-789-19', '(11)7777-7000','Rodrygo Batista', curdate(), 3),
-(null, 'Canvi Mata', '466-021-357-789-19', '(11)7777-7000','Rodrygo Batista', curdate(), null);
-
-/* -------------------------------------------------------------------------------- */
-
-INSERT INTO endereco VALUES
-(null, 'Machado Remada', '08270330', '38C', 'Canvial', 1),
-(null, 'Supra Açucar', '08270330', '128', 'Canvial', 2),
-(null, 'Nova Cana', '08270330', '457', 'Canvial', 3),
-(null, 'Pura Cana', '08270330', '46H', 'Canvial', 4),
-(null, 'Terra Vermelha', '08270330', '56', 'Canvial', 5),
-(null, 'Nascente', '08270330', '79', 'Empresa', 6),
-(null, 'Aronte', '08270330', '3456', 'Canvial', 7),
-(null, 'Torres Primas', '08270330', '1247', 'Empresa', 8),
-(null, 'Galho Forte', '08270330', '7649', 'Canvial', 9),
-(null, 'Serrão 3', '08270330', '487B', 'Ambos', 10);
-
-/* -------------------------------------------------------------------------------- */
-
-INSERT INTO usuario(nomeUsuario, email, senha, fkEmpresa) VALUES
-('Carlos', 'carlos@canvidata.com', '1234567', 1),
-('Eduardo', 'eduardo@canvidata.com', '7654321', 1),
-('Giovana', 'giovana@canvidata.com', '2546137', 1),
-('Igor', 'igor@canvidata.com', '5764312', 1),
-('Mateus', 'mateus@canvidata.com', '3467512', 1),
-('Nathan', 'nathan@canvidata.com', '4765123', 1);
-
-INSERT INTO usuario(nomeUsuario, email, senha, fkEmpresa) VALUES
-('Thiago', 'thiago@canvimata.com', '1234567', 2),
-('Leone', 'leone@canvimata.com', '7654321', 2),
-('Kaue', 'kaue@canvimata.com', '2546137', 2),
-('Sophia', 'sophia@canvimata.com', '5764312', 2),
-('Sara', 'sara@canvimata.com', '3467512', 2),
-('Suellen', 'suellen@canvimata.com', '4765123', 2);
 
 /* -------------------------------------------------------------------------------- */
 

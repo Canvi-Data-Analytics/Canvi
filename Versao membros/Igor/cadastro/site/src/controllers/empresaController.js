@@ -30,7 +30,8 @@ function cadastrar(req, res) {
     var razao = req.body.razaoServer;
     var ramal = req.body.ramalServer;
     var tipoCnpj = req.body.tipoCnpjServer;
-    console.log(cnpj, razao, ramal, tipoCnpj)
+    var responsavel = req.body.responsavelServer;
+    console.log(cnpj, razao, ramal, tipoCnpj, responsavel)
 
     // Faça as validações dos valores
     if (cnpj == undefined) {
@@ -41,7 +42,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        empresaModel.cadastrar(cnpj, razao, ramal, tipoCnpj)
+        empresaModel.cadastrar(cnpj, razao, ramal, tipoCnpj, responsavel)
             .then(
                 function (resultado) {
                     res.json(resultado);

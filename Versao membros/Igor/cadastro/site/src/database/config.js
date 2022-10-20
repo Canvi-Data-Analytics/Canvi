@@ -20,7 +20,7 @@ var sqlServerConfig = {
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
-    database: "CanviData2",
+    database: "CanviData",
     user: "root",
     password: "6384DSsdf*",
 };
