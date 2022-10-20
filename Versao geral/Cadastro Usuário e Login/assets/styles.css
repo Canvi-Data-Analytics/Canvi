@@ -59,7 +59,7 @@ h2 {
   margin-right: auto;
   margin-bottom: 2rem;
   border-radius: 50%;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, .09);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.09);
 }
 
 /* ajuste do texto abaixo do "entre" */
@@ -71,7 +71,6 @@ h2 {
 
 .input-container {
   color: var(--grey);
-
 }
 
 form {
@@ -91,22 +90,20 @@ form input[type="password"] {
   background: none;
   color: var(--grey);
   font-size: 0.875rem;
-  transition: all .1.2s ease-in;
+  transition: all 0.1.2s ease-in;
 }
 
 form input[type="name"]:focus,
 form input[type="password"]:focus {
   border-bottom: 1px solid var(--green);
   color: var(--gray);
-
 }
 
 label {
   display: block;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
   font-size: 0.9rem;
 }
-
 
 .signup-btn {
   width: 100%;
@@ -137,6 +134,22 @@ a {
   text-decoration: underline;
 }
 
+/* validação */
+.input-container.success input {
+  border-bottom: 1px solid #4eca64;
+}
+
+.input-container.error input {
+  border-bottom: 1px solid #db5a5a;
+}
+
+.input-container small {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  color:#db5a5a;
+}
+
 @media screen and (min-width: 900px) {
   .container {
     height: 100vh;
@@ -152,6 +165,5 @@ a {
 
   .right-side img {
     width: 50%;
-
   }
 }
