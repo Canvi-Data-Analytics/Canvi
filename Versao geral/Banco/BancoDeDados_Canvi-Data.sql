@@ -2,7 +2,6 @@
 CREATE DATABASE CanviData;
 USE CanviData;
 
-/* Tabelas com select's simples*/
 create table empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100) NOT NULL,
@@ -21,8 +20,6 @@ select
     e.dataAssContrato 'Data de Assinatura do Contrato'
 from empresa e;
     
-    
-
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nomeUsuario VARCHAR(45) NOT NULL,
@@ -36,8 +33,6 @@ select
     u.email,
     u.senha
 from usuario u;
-
-
 
 create table endereco(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,8 +50,6 @@ select
 	endereco.numero,
 	endereco.tipoEndereco
 from endereco;
-
-
 
 CREATE TABLE hectares (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -82,8 +75,6 @@ select
 	sensor.longitude,
 	sensor.fkHectare 'Hectare referente'
 from sensor;
-
-
 
 CREATE TABLE capturaDado (
 id INT AUTO_INCREMENT,
@@ -152,11 +143,6 @@ INSERT INTO hectares(classificacaoHectare, fkEndereco) VALUES
 (31, 5), (32, 5), (33, 5), (34, 5), (35, 5), (36, 5),
 (37, 5), (38, 5), (39, 5), (40, 5), (41, 5), (42, 5),
 (43, 5), (44, 5), (45, 5), (46, 5), (47, 5), (48, 5);
-
-/*--------------------------------------------------------------------------------------------------------------*/
-/* ---------- Select's ---------- */
-
-/* Empresa Matriz e Empresa Filial */
 select
 	matriz.razaoSocial 'Empresa Matriz',
 	matriz.cnpj,
@@ -170,8 +156,6 @@ select
     filial.dataAssContrato 'Data de Assinatura do Contrato'
 from empresa filial JOIN empresa matriz
 ON  filial.fkMatriz = matriz.id;
-
-
 /* Usuarios das determinadas empresas */
 select
 	e.razaoSocial 'Razão Social',
@@ -183,9 +167,7 @@ select
     u.email,
     u.senha
 from empresa e JOIN usuario u
-ON e.id  = u.fkEmpresa;
-
-
+ON e.id  = u.fkEmpresa;=
 /* Endereço das Empresas e Canaviais (e qual empresa o Canavial referencia) */
 select
 	e.razaoSocial 'Razão Social',
@@ -200,8 +182,6 @@ select
 from empresa e JOIN endereco
 ON e.id  = endereco.fkEmpresa;
 
-
-/* Dados e seus referentes sensores, e sensores e seus referentes hectares */
 select
 	hectares.classificacaoHectare,
     hectares.fkEndereco 'Canavial referente',
