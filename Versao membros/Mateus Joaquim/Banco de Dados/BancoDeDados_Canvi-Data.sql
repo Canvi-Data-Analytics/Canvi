@@ -1,8 +1,9 @@
 /* BANCO DE DADOS */
 CREATE DATABASE CanviData;
 USE CanviData;
+drop database CanviData;
 
-/* Tabelas com select's simples*/
+/* -------- Tabelas -------- */
 create table empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100) NOT NULL,
@@ -13,15 +14,6 @@ dataAssContrato DATE,
 fkMatriz INT,
 CONSTRAINT ctfkMatriz FOREIGN KEY (fkMatriz) REFERENCES empresa(id)
 );
-select
-	e.razaoSocial 'Razão Social',
-    e.cnpj,
-    e.ramal,
-    e.responsavel,
-    e.dataAssContrato 'Data de Assinatura do Contrato'
-from empresa e;
-    
-    
 
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -31,13 +23,6 @@ senha VARCHAR(45) NOT NULL,
 fkEmpresa INT,
 CONSTRAINT ctfkEmpresaUser FOREIGN KEY (fkEmpresa) REFERENCES empresa(id)
 );
-select
-	u.nomeUsuario 'Nome do Usuario',
-    u.email,
-    u.senha
-from usuario u;
-
-
 
 create table endereco(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -47,16 +32,8 @@ numero VARCHAR(8) NOT NULL,
 tipoEndereco VARCHAR(45) NOT NULL,
 fkEmpresa INT NOT NULL,
 CONSTRAINT ctfkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id),
-CONSTRAINT chktipoEndereco CHECK (tipoEndereco ('Empresa', 'Canavial', 'Ambos'))
+CONSTRAINT chktipoEndereco CHECK (tipoEndereco in ('Empresa', 'Canavial', 'Ambos'))
 );
-select
-	endereco.nomeCanavial 'Nome do Canavial',
-	endereco.cep,
-	endereco.numero,
-	endereco.tipoEndereco
-from endereco;
-
-
 
 CREATE TABLE hectares (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,11 +41,6 @@ classificacaoHectare INT NOT NULL,
 fkEndereco INT,
 CONSTRAINT ctfkEndereco FOREIGN KEY (fkEndereco) REFERENCES endereco(id)
 );
-select
-	hectares.classificacaoHectare,
-    hectares.fkEndereco 'Canavial referente'
-from hectares;
-
 
 CREATE TABLE sensor (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -77,13 +49,6 @@ longitude DECIMAL(8,6) NOT NULL,
 fkHectare INT NOT NULL,
 CONSTRAINT ctfkHectare FOREIGN KEY (fkHectare) REFERENCES hectares(id)
 );
-select
-	sensor.latitude,
-	sensor.longitude,
-	sensor.fkHectare 'Hectare referente'
-from sensor;
-
-
 
 CREATE TABLE capturaDado (
 id INT AUTO_INCREMENT,
@@ -94,14 +59,6 @@ fkSensor INT NOT NULL,
 CONSTRAINT ctfkSensor FOREIGN KEY (fkSensor) REFERENCES sensor(id),
 PRIMARY KEY (id, fkSensor)
 );
-select
-	dados.temperatura,
-	dados.umidade,
-	dados.dtInspecao,
-	dados.fkSensor 'Sensor de referente'
-from capturaDado dados;
-
-
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
@@ -123,15 +80,15 @@ INSERT INTO empresa values
 /* -------------------------------------------------------------------------------- */
 
 INSERT INTO endereco VALUES
-(null, 'Machado Remada', '08270330', '38C', 'Canvial', 1),
-(null, 'Supra Açucar', '08270330', '128', 'Canvial', 2),
-(null, 'Nova Cana', '08270330', '457', 'Canvial', 3),
-(null, 'Pura Cana', '08270330', '46H', 'Canvial', 4),
-(null, 'Terra Vermelha', '08270330', '56', 'Canvial', 5),
+(null, 'Machado Remada', '08270330', '38C', 'Canavial', 1),
+(null, 'Supra Açucar', '08270330', '128', 'Canavial', 2),
+(null, 'Nova Cana', '08270330', '457', 'Canavial', 3),
+(null, 'Pura Cana', '08270330', '46H', 'Canavial', 4),
+(null, 'Terra Vermelha', '08270330', '56', 'Canavial', 5),
 (null, 'Nascente', '08270330', '79', 'Empresa', 6),
-(null, 'Aronte', '08270330', '3456', 'Canvial', 7),
+(null, 'Aronte', '08270330', '3456', 'Canavial', 7),
 (null, 'Torres Primas', '08270330', '1247', 'Empresa', 8),
-(null, 'Galho Forte', '08270330', '7649', 'Canvial', 9),
+(null, 'Galho Forte', '08270330', '7649', 'Canavial', 9),
 (null, 'Serrão 3', '08270330', '487B', 'Ambos', 10);
 
 /* -------------------------------------------------------------------------------- */
@@ -205,67 +162,146 @@ INSERT INTO hectares(classificacaoHectare, fkEndereco) VALUES
 (43, 5), (44, 5), (45, 5), (46, 5), (47, 5), (48, 5);
 
 /*--------------------------------------------------------------------------------------------------------------*/
-/* ---------- Select's ---------- */
 
-/* Empresa Matriz e Empresa Filial */
+/* ---------- Select's Simples---------- */
+
+/* -------- Tabela Empresa -------- */
 select
-	matriz.razaoSocial 'Empresa Matriz',
-	matriz.cnpj,
-    matriz.ramal,
-    matriz.responsavel,
-    matriz.dataAssContrato 'Data de Assinatura do Contrato',
-    filial.razaoSocial 'Empresa Filial',
-	filial.cnpj,
-    filial.ramal,
-    filial.responsavel,
-    filial.dataAssContrato 'Data de Assinatura do Contrato'
+	empresa.razaoSocial as 'Razão Social',
+    empresa.cnpj as 'CNPJ',
+    empresa.ramal as 'Ramal',
+    empresa.responsavel as 'Responsável',
+    empresa.dataAssContrato as 'Data de Assinatura do Contrato'
+from empresa;
+
+/* -------- Tabela Usuario -------- */
+select
+	usuario.nomeUsuario as 'Nome do Usuario',
+    usuario.email as 'E-mail',
+    usuario.senha as 'Senha'
+from usuario;
+
+/* -------- Tabela Endereço -------- */
+select
+	endereco.nomeCanavial as 'Nome do Canavial',
+	endereco.cep as 'CEP',
+	endereco.numero as 'Número',
+	endereco.tipoEndereco as 'Tipo de endereço'
+from endereco;
+
+/* -------- Tabela Hectares -------- */
+select
+	hectares.classificacaoHectare as 'Classificação do Hectare',
+    hectares.fkEndereco as 'Canavial referente'
+from hectares;
+
+/* -------- Tabela Sensor -------- */
+select
+	sensor.latitude as 'Latitude',
+	sensor.longitude as 'Longitude',
+	sensor.fkHectare as 'Hectare referente'
+from sensor;
+
+/* -------- Tabela capturaDados -------- */
+select
+	dados.temperatura as 'Temperatura',
+	dados.umidade as 'Umidade',
+	dados.dtInspecao as 'Data de Resgistro',
+	dados.fkSensor as 'Sensor de referente'
+from capturaDado dados;
+
+/* ---------------------------------------------------------------------------- */
+/* ---------- Select's com JOIN---------- */
+/* --- Empresa Matriz e Empresa Filial --- */
+select
+	matriz.razaoSocial 'Dados da Empresa Matriz',
+	matriz.cnpj as 'CNPJ',
+    matriz.ramal as 'Ramal',
+    matriz.responsavel as 'Responsável',
+    matriz.dataAssContrato as 'Data de Assinatura do Contrato',
+    filial.razaoSocial as 'Dados da Empresa Filial',
+	filial.cnpj as 'CNPJ',
+    filial.ramal as 'Ramal',
+    filial.responsavel as 'Responsável',
+    filial.dataAssContrato as 'Data de Assinatura do Contrato'
 from empresa filial JOIN empresa matriz
 ON  filial.fkMatriz = matriz.id;
 
 
-/* Usuarios das determinadas empresas */
+/* --- Usuarios das determinadas empresas --- */
 select
-	e.razaoSocial 'Razão Social',
-    e.cnpj,
-    e.ramal,
-    e.responsavel,
-    e.dataAssContrato 'Data de Assinatura do Contrato',
-    u.nomeUsuario 'Nome do Usuario',
-    u.email,
-    u.senha
-from empresa e JOIN usuario u
-ON e.id  = u.fkEmpresa;
+	empresa.razaoSocial as 'Razão Social',
+    empresa.cnpj as 'CNPJ',
+    empresa.ramal as 'Ramal',
+    empresa.responsavel as 'Responsável',
+    empresa.dataAssContrato as 'Data de Assinatura do Contrato',
+    usuario.nomeUsuario as 'Nome do Usuario',
+    usuario.email as 'E-mail',
+    usuario.senha as 'Senha'
+from empresa JOIN usuario
+ON empresa.id  = usuario.fkEmpresa;
 
 
-/* Endereço das Empresas e Canaviais (e qual empresa o Canavial referencia) */
+/* --- Endereço das Empresas e Canaviais (e qual empresa o Canavial referencia) --- */
 select
-	e.razaoSocial 'Razão Social',
-    e.cnpj,
-    e.ramal,
-    e.responsavel,
-    e.dataAssContrato 'Data de Assinatura do Contrato',
-    endereco.nomeCanavial 'Nome do Canavial',
-	endereco.cep,
-	endereco.numero,
-	endereco.tipoEndereco
-from empresa e JOIN endereco
-ON e.id  = endereco.fkEmpresa;
+	empresa.razaoSocial as 'Razão Social',
+    empresa.cnpj as 'CNPJ',
+    empresa.ramal as 'Ramal',
+    empresa.responsavel as 'Responsável',
+    empresa.dataAssContrato as 'Data de Assinatura do Contrato',
+    endereco.nomeCanavial as 'Nome do Canavial',
+	endereco.cep as 'CEP',
+	endereco.numero as 'Número',
+	endereco.tipoEndereco as 'Tipo de endereço'
+from empresa JOIN endereco
+ON empresa.id  = endereco.fkEmpresa;
 
 
-/* Dados e seus referentes sensores, e sensores e seus referentes hectares */
+/* --- Dados e seus referentes sensores, e sensores e seus referentes hectares --- */
 select
-	hectares.classificacaoHectare,
-    hectares.fkEndereco 'Canavial referente',
-    sensor.latitude,
-	sensor.longitude,
-	sensor.fkHectare 'Hectare referente',
-    dados.temperatura,
-	dados.umidade,
-	dados.dtInspecao,
-	dados.fkSensor 'Sensor de referente'
+	hectares.classificacaoHectare as 'Classificação do Hectare',
+    hectares.fkEndereco as 'Canavial referente',
+    sensor.latitude as 'Latitude',
+	sensor.longitude as 'Longitude',
+	sensor.fkHectare as 'Hectare referente',
+    dados.temperatura as 'Temperatura',
+	dados.umidade as 'Umidade',
+	dados.dtInspecao as 'Data de Resgistro',
+	dados.fkSensor as 'Sensor de referente'
 from hectares JOIN sensor
 ON hectares.id = sensor.fkHectare
 JOIN capturaDado dados
 ON dados.fkSensor = hectares.id;
+
+
+/* --- Select com JOIN entre todas as tabelas --- */
+select
+	empresa.razaoSocial as 'Razão Social',
+    empresa.cnpj as 'CNPJ',
+    empresa.ramal as 'Ramal',
+    empresa.responsavel as 'Responsável',
+    empresa.dataAssContrato as 'Data de Assinatura do Contrato',
+	endereco.nomeCanavial as 'Nome do Canavial',
+	endereco.cep as 'CEP',
+	endereco.numero as 'Número',
+	endereco.tipoEndereco as 'Tipo de endereço',
+    usuario.nomeUsuario as 'Nome do Usuario',
+    usuario.email as 'E-mail',
+    usuario.senha as 'Senha',
+	hectares.classificacaoHectare as 'Classificação do Hectare',
+    hectares.fkEndereco as 'Canavial referente',
+    sensor.latitude as 'Latitude',
+	sensor.longitude as 'Longitude',
+	sensor.fkHectare as 'Hectare referente',
+    dados.temperatura as 'Temperatura',
+	dados.umidade as 'Umidade',
+	dados.dtInspecao as 'Data de Resgistro',
+	dados.fkSensor as 'Sensor de referente'
+FROM empresa
+JOIN endereco ON endereco.fkEmpresa = empresa.id
+JOIN usuario ON usuario.fkEmpresa = empresa.id
+JOIN hectares ON hectares.fkEndereco = endereco.id
+JOIN sensor ON sensor.fkHectare = hectares.id
+JOIN capturaDado dados ON dados.fkSensor = sensor.id;
 
 /*--------------------------------------------------------------------------------------------------------------*/
