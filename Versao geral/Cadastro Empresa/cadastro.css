@@ -1,0 +1,140 @@
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+/* SECTION DA IMAGEM */
+
+.module.image {
+    height: 100vh;
+    width: 45%;
+    background-image: url(./assests/images/canavial.jpg);
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text.image {
+    text-align: center;
+    color: #FFFF;
+    font-weight: 500;
+    font-size: 1.9vw;
+}
+
+.module.form {
+    width: 55%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.title {
+    height: 17vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+img {
+    width: 5.8vw;
+    height: 12vh;
+}
+
+.text_Top{
+    margin-right: 1.4vw;
+}
+
+h1 {
+    font-size: 1.5vw;
+    margin: 0;
+    color: #5A9C67;
+}
+
+.sub {
+    color: rgb(131, 127, 127);
+}
+
+.container {
+    height: 64vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.register{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.partOne, .partTwo {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+input, select{
+    height: 4vh;
+    width: 20vw;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #5A9C67;
+    outline: 0;
+    font-size: 1vw;
+}
+
+.register span{
+    margin-top: 2vh;
+}
+
+.botao{
+    height: 19vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao p{
+    margin-bottom: 0.6vh;
+}
+
+.textBase {
+    font-size: 0.85vw;
+    color: rgb(233, 5, 5)
+}
+
+.ast {
+    color: rgb(233, 5, 5);
+}
+
+.botao button{
+    height: 6.9vh;
+    width: 22vw;
+    background-color: #5A9C67;
+    border: none;
+    border-radius: 1vw;
+    font-size: 1.1vw;
+    color: #FFFF;
+    letter-spacing: 0.02em;
+}
+
+button:hover {
+    background-color: #359e49;
+    cursor: pointer;
+}

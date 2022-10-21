@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/hectare.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.com/libraries/chartjs-plugin-annotation"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a class="logo" href=""><img src="assets/img/logo.jpg" alt="LOGO"></a>
+            <div class="itens">
+                <ul class="list">
+                    <li><a href="../Institucional/Home/index.html">sair</a></li>
+                    <li><a href="dashboard.html">voltar</a></li>
+                </ul>
+                <span class="nome-empresa">Nome Empresa</span>
+                <img src="assets/img/usuario.png" alt="">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="conteudoGeral">
+            <section class="KPI">
+                <div class="container">
+
+                    <div class="titulo">
+                        <span>Dashboard</span>
+                    </div>
+
+                    <div class="medidas">
+                        <div class="med">
+                            <div class="destaque"><span>9</span></div>
+                            <span class="legenda">Horas com desenvolvimento lento</span>
+                            <span class="legenda2">Ideal: abaixo de 6</span>
+                        </div>
+
+                        <div class="med">
+                            <div class="destaque"><span>3</span></div>
+                            <span class="legenda">Horas sem se desenvolver</span>
+                            <span class="legenda2">Ideal: abaixo de 3</span>
+                        </div>
+
+                        <div class="med">
+                            <div class="destaque"><span>15</span></div>
+                            <span class="legenda">Variações na semana</span>
+                            <span class="legenda2">Ideal: abaixo de 16</span>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="chartJS">
+                <div class="container">
+
+                    <div class="graficos">
+                        <div class="linha">
+                            <span class="subTitulo">UMIDADE</span>
+                            <canvas id="dht11Umidade"></canvas>
+                        </div>
+
+                        <div class="barra">
+                            <span class="subTitulo">TEMPERATURA</span>
+                            <canvas id="dht11Temperatura"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+    /* -- dht11Temperatura -- */
+    const labelsLine = ['9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'
+    ];
+
+    const dataTemperatura = {
+        labels: labelsLine,
+        datasets: [{
+            label: 'Temperatura',
+            data: [29, 38, 37, 31, 30, 30, 32, 31, 30, 32, 33, 28, 30, 32, 31, 39, 41, 28, 25, 31, 34, 30, 28, 35, 33],
+            borderColor: 'rgb(113, 177, 98)',
+            backgroundColor: 'rgb(113, 177, 98)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Alerta',
+            data: [29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29],
+            borderColor: 'rgb(255,255,0)',
+            backgroundColor: 'rgb(255,255,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Alerta',
+            data: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35],
+            borderColor: 'rgb(255,255,0)',
+            backgroundColor: 'rgb(255,255,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Crítico',
+            data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
+            borderColor: 'rgb(255,0,0)',
+            backgroundColor: 'rgb(255,0,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Crítico',
+            data: [37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37],
+            borderColor: 'rgb(255,0,0)',
+            backgroundColor: 'rgb(255,0,0)'
+        }
+        ]
+    };
+
+    const configTemperatura = {
+        type: 'line',
+        data: dataTemperatura
+    };
+
+    const myChart = new Chart(
+        document.getElementById('dht11Temperatura'),
+        configTemperatura
+    );
+
+    /* -- dht11Umidade -- */
+
+    const dataUmidade = {
+        labels: labelsLine,
+        datasets: [{
+            label: 'Umidade',
+            data: [61, 61, 61, 61, 61, 66.25, 66.25, 66.25, 66.25, 66.25, 58.75, 58.75, 58.75, 58.75, 58.75, 51.25, 51.25, 51.25, 51.25, 51.25, 61, 60, 65, 70, 80
+            ],
+            borderColor: 'rgb(113, 177, 98)',
+            backgroundColor: 'rgb(113, 177, 98)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Alerta',
+            data: [59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59],
+            borderColor: 'rgb(255,255,0)',
+            backgroundColor: 'rgb(255,255,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Alerta',
+            data: [71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71],
+            borderColor: 'rgb(255,255,0)',
+            backgroundColor: 'rgb(255,255,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Emergência',
+            data: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
+            borderColor: 'rgb(255,0,0)',
+            backgroundColor: 'rgb(255,0,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Emergência',
+            data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80],
+            borderColor: 'rgb(255,0,0)',
+            backgroundColor: 'rgb(255,0,0)'
+        },
+        {
+            labels: labelsLine,
+            label: 'Crítico',
+            data: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+            borderColor: 'rgb(63, 0, 114)',
+            backgroundColor: 'rgb(63, 0, 114)'
+        },
+
+        ]
+    };
+
+    const configUmidade = {
+        type: 'line',
+        data: dataUmidade,
+    };
+
+    const myChartUmidade = new Chart(
+        document.getElementById('dht11Umidade'),
+        configUmidade
+    );
+</script>

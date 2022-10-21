@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+header {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: 0.3s;
+    margin-left: 20px;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+#nome_empresa {
+    margin: 0 20px;
+}
+
+.copy {
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.78vw;
+}
+
+.conteudoGeral {
+    display: flex;
+}
+
+/* SECTIONS */
+
+section .container {
+    height: 90vh;
+    background-color: #FFF;
+}
+
+/* KPI */
+
+.KPI {
+    height: 90vh;
+    width: 50%;
+}
+
+/* GRÁFICOS */
+
+.subTitulo {
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.chartJS {
+    height: 90vh;
+    width: 50%;
+}
+
+.chartJS .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.graficos {
+    width: 40vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.linha,
+.barra {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    width: 80%;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.medidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+    width: 80%;
+}
+
+.med {
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    justify-content: flex-start;
+}
+
+.destaque {
+    background-color: #5A9C67;
+    color: #FFFF;
+    width: 6vw;
+    height: 13vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.12vw 0.24vh rgb(36, 84, 84);
+}
+
+.KPI .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.med span {
+    font-size: 1.35vw;
+    font-weight: 400;
+}
+
+.med .legenda {
+    margin-left: 0.6vw;
+    width: 18vw;
+}
+
+.med .legenda2 {
+    display: flex;
+    align-items: center;
+    height: 85%;
+    border-left: solid 1px #005211;
+    padding-left: 2vw;
+    margin-left: 20px;
+    width: 37%;
+}
