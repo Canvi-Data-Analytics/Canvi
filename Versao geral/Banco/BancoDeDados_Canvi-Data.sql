@@ -3,7 +3,7 @@ CREATE DATABASE CanviData;
 USE CanviData;
 drop database CanviData;
 
-/* Tabelas com select's simples*/
+/* -------- Tabelas -------- */
 create table empresa (
 id INT PRIMARY KEY AUTO_INCREMENT,
 razaoSocial VARCHAR(100) NOT NULL,
@@ -14,15 +14,6 @@ dataAssContrato DATE,
 fkMatriz INT,
 CONSTRAINT ctfkMatriz FOREIGN KEY (fkMatriz) REFERENCES empresa(id)
 );
-select
-	e.razaoSocial 'Razão Social',
-    e.cnpj,
-    e.ramal,
-    e.responsavel,
-    e.dataAssContrato 'Data de Assinatura do Contrato'
-from empresa e;
-    
-    
 
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -32,13 +23,6 @@ senha VARCHAR(45) NOT NULL,
 fkEmpresa INT,
 CONSTRAINT ctfkEmpresaUser FOREIGN KEY (fkEmpresa) REFERENCES empresa(id)
 );
-select
-	u.nomeUsuario 'Nome do Usuario',
-    u.email,
-    u.senha
-from usuario u;
-
-
 
 create table endereco(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -48,16 +32,8 @@ numero VARCHAR(8) NOT NULL,
 tipoEndereco VARCHAR(45) NOT NULL,
 fkEmpresa INT NOT NULL,
 CONSTRAINT ctfkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(id),
-CONSTRAINT chktipoEndereco CHECK (tipoEndereco ('Empresa', 'Canavial', 'Ambos'))
+CONSTRAINT chktipoEndereco CHECK (tipoEndereco in ('Empresa', 'Canavial', 'Ambos'))
 );
-select
-	endereco.nomeCanavial 'Nome do Canavial',
-	endereco.cep,
-	endereco.numero,
-	endereco.tipoEndereco
-from endereco;
-
-
 
 CREATE TABLE hectares (
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -73,13 +49,6 @@ longitude DECIMAL(8,6) NOT NULL,
 fkHectare INT NOT NULL,
 CONSTRAINT ctfkHectare FOREIGN KEY (fkHectare) REFERENCES hectares(id)
 );
-select
-	sensor.latitude,
-	sensor.longitude,
-	sensor.fkHectare 'Hectare referente'
-from sensor;
-
-
 
 CREATE TABLE capturaDado (
 id INT AUTO_INCREMENT,
@@ -90,14 +59,6 @@ fkSensor INT NOT NULL,
 CONSTRAINT ctfkSensor FOREIGN KEY (fkSensor) REFERENCES sensor(id),
 PRIMARY KEY (id, fkSensor)
 );
-select
-	dados.temperatura,
-	dados.umidade,
-	dados.dtInspecao,
-	dados.fkSensor 'Sensor de referente'
-from capturaDado dados;
-
-
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
@@ -119,15 +80,15 @@ INSERT INTO empresa values
 /* -------------------------------------------------------------------------------- */
 
 INSERT INTO endereco VALUES
-(null, 'Machado Remada', '08270330', '38C', 'Canvial', 1),
-(null, 'Supra Açucar', '08270330', '128', 'Canvial', 2),
-(null, 'Nova Cana', '08270330', '457', 'Canvial', 3),
-(null, 'Pura Cana', '08270330', '46H', 'Canvial', 4),
-(null, 'Terra Vermelha', '08270330', '56', 'Canvial', 5),
+(null, 'Machado Remada', '08270330', '38C', 'Canavial', 1),
+(null, 'Supra Açucar', '08270330', '128', 'Canavial', 2),
+(null, 'Nova Cana', '08270330', '457', 'Canavial', 3),
+(null, 'Pura Cana', '08270330', '46H', 'Canavial', 4),
+(null, 'Terra Vermelha', '08270330', '56', 'Canavial', 5),
 (null, 'Nascente', '08270330', '79', 'Empresa', 6),
-(null, 'Aronte', '08270330', '3456', 'Canvial', 7),
+(null, 'Aronte', '08270330', '3456', 'Canavial', 7),
 (null, 'Torres Primas', '08270330', '1247', 'Empresa', 8),
-(null, 'Galho Forte', '08270330', '7649', 'Canvial', 9),
+(null, 'Galho Forte', '08270330', '7649', 'Canavial', 9),
 (null, 'Serrão 3', '08270330', '487B', 'Ambos', 10);
 
 /* -------------------------------------------------------------------------------- */
@@ -201,9 +162,10 @@ INSERT INTO hectares(classificacaoHectare, fkEndereco) VALUES
 (43, 5), (44, 5), (45, 5), (46, 5), (47, 5), (48, 5);
 
 /*--------------------------------------------------------------------------------------------------------------*/
-/* ---------- Select's ---------- */
 
-/* Empresa Matriz e Empresa Filial */
+/* ---------- Select's Simples---------- */
+
+/* -------- Tabela Empresa -------- */
 select
 	empresa.razaoSocial as 'Razão Social',
     empresa.cnpj as 'CNPJ',
@@ -266,21 +228,21 @@ from empresa filial JOIN empresa matriz
 ON  filial.fkMatriz = matriz.id;
 
 
-/* Usuarios das determinadas empresas */
+/* --- Usuarios das determinadas empresas --- */
 select
-	e.razaoSocial 'Razão Social',
-    e.cnpj,
-    e.ramal,
-    e.responsavel,
-    e.dataAssContrato 'Data de Assinatura do Contrato',
-    u.nomeUsuario 'Nome do Usuario',
-    u.email,
-    u.senha
-from empresa e JOIN usuario u
-ON e.id  = u.fkEmpresa;
+	empresa.razaoSocial as 'Razão Social',
+    empresa.cnpj as 'CNPJ',
+    empresa.ramal as 'Ramal',
+    empresa.responsavel as 'Responsável',
+    empresa.dataAssContrato as 'Data de Assinatura do Contrato',
+    usuario.nomeUsuario as 'Nome do Usuario',
+    usuario.email as 'E-mail',
+    usuario.senha as 'Senha'
+from empresa JOIN usuario
+ON empresa.id  = usuario.fkEmpresa;
 
 
-/* Endereço das Empresas e Canaviais (e qual empresa o Canavial referencia) */
+/* --- Endereço das Empresas e Canaviais (e qual empresa o Canavial referencia) --- */
 select
 	empresa.razaoSocial as 'Razão Social',
     empresa.cnpj as 'CNPJ',
@@ -295,7 +257,7 @@ from empresa JOIN endereco
 ON empresa.id  = endereco.fkEmpresa;
 
 
-/* Dados e seus referentes sensores, e sensores e seus referentes hectares */
+/* --- Dados e seus referentes sensores, e sensores e seus referentes hectares --- */
 select
 	hectares.classificacaoHectare as 'Classificação do Hectare',
     hectares.fkEndereco as 'Canavial referente',
