@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("animations.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  outline: none;
+  overflow: hidden;
+}
+
+:root {
+  --green: #5a9c67;
+  --white: #fafafa;
+  --grey: #8d8d8d;
+  --black: #131313; 
+}
+
+body {
+  background-color: var(--white);
+}
+
+h2 {
+  font-weight: 900;
+  color: var(--green);
+}
+
+/* alocação da imagem ao lado esquerdo */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side {
+  height: 200px;
+  background: url("img/background.png");
+  background-position: center;
+  background-size: cover;
+  animation: left 1.2s ease-in-out;
+}
+
+/* centralização dos inputs ao lado direito */
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: right 1.2s ease-in-out;
+}
+
+/* centralização da logo */
+.right-side .copy img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, .09);
+}
+
+/* ajuste do texto abaixo do "entre" */
+.right-side .copy {
+  margin-bottom: 2.4rem;
+  color: var(--grey);
+  font-size: 1rem;
+}
+
+.input-container {
+  color: var(--grey);
+
+}
+
+form {
+  opacity: 0;
+  animation: surgir 1.2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+/* estilizando os inputs */
+form input[type="email"],
+form input[type="password"],
+form input[type="name"],
+form input[type="adress"],
+form input[type="number"],
+form input[type="text"] {
+  width: 100%;
+  display: block;
+  /* padding-top: 1rem; */
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: 1px solid var(--grey);
+  background: none;
+  color: var(--grey);
+  font-size: 0.875rem;
+  transition: all .1.2s ease-in;
+}
+
+form input[type="name"]:focus,
+form input[type="adress"]:focus,
+form input[type="number"]:focus,
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-bottom: 1px solid var(--green);
+  color: var(--gray);
+  
+}
+
+label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: 0.9rem;
+}
+
+
+.signup-btn {
+  width: 100%;
+  display: block;
+  background-color: var(--green);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background-color: #67ac75;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.8rem;
+  font-size: 0.8rem;
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    height: 100vh;
+    flex-direction: row;
+  }
+
+  .left-side,
+  .right-side {
+    width: 50%;
+    height: auto;
+    display: flex;
+  }
+
+  .right-side img {
+    width: 50%;
+
+  }
+}

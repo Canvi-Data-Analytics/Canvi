@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="./assests/images/LOGO.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <section class="module image">
+        <p class="text image">Facilitamos o controle de dados por meio de tecnologias modernas e fáceis de usar.</p>
+    </section>
+    <section class="module form">
+        <div class="content">
+            <div class="title">
+                <img class="logo" src="assests/images/LOGO_f_verdex.jpg" alt="Logo">
+                <div class="text_Top">
+                    <h1>Crie sua conta</h1>
+                    <span class="sub">Inicie sua jornada com a gente</span>
+                </div>
+            </div>
+            
+            
+            <div class="container">
+                <div class="register">
+                    <div class="partOne">
+
+    
+
+                        <span>CNPJ<span class="ast">*</span></span>
+                        <input type="text" id="ipt_cnpj" onkeyup="validacaoCNPJ()" value="">
+                        <div id="msg_cnpj"></div>
+                        
+
+                        <span>Razão Social<span class="ast">*</span></span>
+                        <input type="text" id="ipt_razao" onkeyup="validacaoRazao()" value="">
+                        <div id="msg_razao"></div>
+                        
+                        
+                        <span>E-mail<span class="ast">*</span></span>
+                        <input type="email" onkeyup="validacaoEmail(iptEmail)" id="iptEmail"  maxlength="60" size='65'  value="">
+                        <div id="msgemail"></div>
+                        
+                        
+                        <span class="pass">Senha <span class="ast">*</span></span>
+                        <input type="password" id="ipt_senha" onkeyup="validacaoSenha()" value="">
+                        <div id="msgSenha"></div>
+                        
+                        
+                        <span class="pass">Confirme a senha <span class="ast">*</span></span>
+                        <input type="password" id="ipt_confirmaSenha" onkeyup="validacaoSenha()" value="">
+                        <div id="msg_confirmaSenha"></div>
+                        
+
+                        <span>Responsável<span class="ast">*</span></span>
+                         <input type="text" id="ipt_respon"  value=""> 
+                        <div id="msg_respon"></div>
+
+                        <!-- onkeypress="return Onlychars(event)" --> 
+                        
+                        
+                        <span>Tipo CNPJ<span class="ast">*</span></span>
+                        <select id="sel_tipo" value="1">
+                            <option value="0" disabled selected>Selecione o tipo</option>
+                            <option value="null" selected>Matriz</option>
+                            <option value="1">Filial</option>
+                        </select>
+                        <div id="msg_sel"></div>
+                        
+                    </div>
+                                    
+                    <div class="partTwo">
+                        <span>Ramal<span class="ast">*</span></span>
+                        <input type="text" id="ipt_ramal" onkeyup="validacaoRamal()" value="2">
+                        <div id="msg_ramal"></div>
+                        
+                        
+                        <span>CEP<span class="ast">*</span></span>
+                        <input maxlength="9" id="ipt_cep" type="text" onkeyup="pesquisacep(this.value);">
+                        <div id="msg_CEP"></div>
+                        
+                        
+                        <span>Número<span class="ast">*</span></span>
+                        <input type="number" id="ipt_rua" id="iptNumResidencial" onkeyup="validacaoNum()" value="66">
+                        <div id="msg_num"></div>
+                        
+                       
+                        <span id="log">Logradouro</span>
+                        <input  id="rua" type="text">
+                        
+                        <span >Bairro</span>
+                        <input id="bairro" type="text">
+                        
+                        <span >Cidade </span>
+                        <input id="cidade" type="text">
+                        
+                        <span>Estado</span>
+                        <input id="uf" type="text" >
+                    </div>
+                </div>
+            </div>
+                
+                <div id="div_aguardar">
+                </div>
+            
+            <div class="botao">
+                <p class="textBase"><span class="ast">*</span> Campos de preenchimento obrigatório</p>
+                <button onclick="cadastrarEmpresa()">Criar conta</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+
+function cadastrarUsuario(){
+    var emailVar = iptEmail.value;
+    var senhaVar = ipt_senha.value;
+    var confrimaSenhaVar = ipt_confirmaSenha.value;
+    var responsavelVar = ipt_respon.value;
+
+    if(emailVar == "" || senhaVar == "" || confrimaSenhaVar == "" || responsavelVar == "") {
+        return false;
+    }
+        else {
+        
+    }
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                responsavelServer: responsavelVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+    
+   
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+
+}
+function cadastrarEndereco(){
+
+    var cepVar = ipt_cep.value;
+    var ruaVar = ipt_rua.value;
+
+
+
+        fetch("/enderecos/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                cepServer: cepVar,
+                ruaServer: ruaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+    
+   
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+
+}
+
+
+function cadastrarEmpresa() {
+        var cnpjVar = ipt_cnpj.value;
+        var razaoSocialVar = ipt_razao.value;
+        var ramalVar = ipt_ramal.value;
+        var tipoCnpjVar = sel_tipo.value
+        var responsavelVar = ipt_respon.value;
+
+        fetch("/empresas/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                cnpjServer: cnpjVar,
+                razaoServer: razaoSocialVar,
+                ramalServer: ramalVar,
+                tipoCnpjServer: tipoCnpjVar,
+                responsavelServer: responsavelVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cadastrarUsuario();
+                cadastrarEndereco();
+        
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        Verficar()
+        return false;
+    }
+
+
+
+
+
+
+    
+
+var permissaoRazao = 0
+var permissaoGmail = 0
+var permissaoSenha = 0
+var permissaoConfirmaSenha = 0
+var permissaoRamal = 0
+var permissaoCNPJ = 0
+var permissaoNumeroResidencial = 0
+var permissaoCEP = 0
+var permissaoResponsavel = 0
+
+var verificar = 0
+
+// VALIDAÇÃO RAZÃO
+
+function validacaoRazao() {
+    var razao = ipt_razao.value
+
+    if (razao == "") {
+    msg_razao.innerHTML = "<font color='red'>Razão social não pode ser nula</font>"
+    permissaoRazao = 0
+    } else {
+    msg_razao.innerHTML = ""
+    permissaoRazao = 1
+}
+}
+
+// VALIDAÇÃO EMAIL
+
+function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+    
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) &&
+        (usuario.search("@")==-1) &&
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) &&
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&
+        (dominio.indexOf(".") >=1)&&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        
+        document.getElementById("msgemail").innerHTML="";
+        permissaoGmail=1
+    } else if(field.value==""){
+        document.getElementById("msgemail").innerHTML="";
+
+    }   
+    else{
+    document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+    permissaoGmail=0
+    }
+    }
+
+// VALIDAÇÃO SENHA 
+
+function validacaoSenha () {
+    var senha = ipt_senha.value
+    var confirmaSenha = ipt_confirmaSenha.value
+
+    if (senha != '' && senha.length < 8) {
+        msgSenha.innerHTML = "<font color='red'>A senha deve conter 8 ou mais caracteres</font>"
+        permissaoSenha=0
+    } else {
+        msgSenha.innerHTML = ""
+        permissaoSenha=1
+    }
+
+    if (confirmaSenha != '' && confirmaSenha.length < 8) {
+        msg_confirmaSenha.innerHTML = "<font color='red'>A senha deve conter 8 ou mais caracteres</font>"
+        permissaoConfirmaSenha=0
+    } else {
+        msg_confirmaSenha.innerHTML = ""
+        permissaoConfirmaSenha=1
+        
+        if (senha != confirmaSenha) {
+            msg_confirmaSenha.innerHTML = "<font color='red'>A senhas devem ser iguais</font>"
+            permissaoConfirmaSenha=0
+        }
+    }
+}
+
+
+// VALIDAÇÃO RAMAL
+
+function validacaoRamal() {
+
+    var ramal = ipt_ramal.value
+
+    if (ramal != '' && ramal.length != 13) {
+        msg_ramal.innerHTML = "<font color='red'>O ramal é composto por 10 dígitos</font>"
+        permissaoRamal=0
+    } else {
+        msg_ramal.innerHTML = ""
+        permissaoRamal=1
+    }
+
+    var ramalMascara = document.getElementById("ipt_ramal");
+
+    if(ramalMascara.value.length == 2) {
+    ramalMascara.value = `(${ipt_ramal.value})`
+    } else if (ramalMascara.value.length == 8){
+        ramalMascara.value += "-"
+    }
+}
+
+// VALIDACÃO CNPJ
+
+function validacaoCNPJ() {
+    var cnpj = ipt_cnpj.value
+
+    if(cnpj != '' && cnpj.length != 18) {
+        msg_cnpj.innerHTML = "<font color='red'>O CNPJ é composto por 14 dígitos</font>"
+        permissaoCNPJ=0
+    } else {
+        msg_cnpj.innerHTML = ""
+        permissaoCNPJ=1
+    }
+
+    var cnpjMascara = document.getElementById("ipt_cnpj");
+
+    if(cnpjMascara.value.length == 2) {
+    cnpjMascara.value += "." 
+    } else if (cnpjMascara.value.length == 6){
+        cnpjMascara.value += "."
+    } else if (cnpjMascara.value.length == 10){
+        cnpjMascara.value += "/"
+    } else if (cnpjMascara.value.length == 15){
+        cnpjMascara.value += "-"
+    }
+}
+
+// VALIDAÇÃO RESPONSÁVEL
+
+// function Onlychars(e)
+// {
+//     var tecla=new Number();
+//     if(window.event) {
+//         tecla = e.keyCode;
+//     }
+//     else if(e.which) {
+//         tecla = e.which;
+//     }
+//     else {
+//         return true;
+//     }
+//     if((tecla >= "48") && (tecla <= "57")){
+//         return false;
+//     }
+// }
+
+// Validação Número
+
+function validacaoNum() {
+
+    numResidencial = iptNumResidencial.value
+    if ( numResidencial.length>0) {
+        msg_num.innerHTML = ""
+       permissaoResponsavel=1
+    }
+}
+
+
+// API VIACEP 
+
+    function limpa_formulário_cep() {
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+
+
+            rua.disabled = "true"
+            bairro.disabled = "true"
+            cidade.disabled = "true"
+            uf.disabled = "true"
+            permissaoCEP =1
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            msg_CEP.innerHTML = "<font color='red'>CEP não encontrado.</font>";
+            permissaoCEP =0
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        var cepMascara = document.getElementById("ipt_cep");
+
+        if(cepMascara.value.length == 5) {
+            cepMascara.value += "-"
+        }
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+                // document.getElementById('ibge').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+                msg_CEP.innerHTML = ''
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                msg_CEP.innerHTML = "<font color='red'>Formato de CEP inválido</font>";
+                permissaoCEP=0
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+    
+    
+    function Verficar(){
+        var numResidencial = iptNumResidencial.value
+        var responsavel = ipt_respon.value
+ 
+        if(responsavel.length == 0){
+            msg_respon.innerHTML = "<font color='red'>O campo responsável não pode estar vazio</font>"
+            permissaoResponsavel = 0
+        } else if (isNaN(responsavel)) {
+            msg_respon.innerHTML = ""
+            permissaoResponsavel = 1
+        } else {
+            msg_respon.innerHTML = "<font color='red'>O campo responsável não pode ser um número</font>"
+            permissaoResponsavel = 0
+        }
+
+        if(numResidencial.length==0){
+            msg_num.innerHTML = "<font color='red'>O campo número residencial não pode estar vazio</font>"
+            permissaoNumeroResidencial=0
+        }
+        else{
+            permissaoNumeroResidencial=1
+        }
+
+        // VALIDAÇÃO RAZÃO SOCIAL
+
+        var razao = ipt_razao.value
+
+        if (razao == "") {
+            msg_razao.innerHTML = "<font color='red'>Razão social não pode ser nula</font>"
+            permissaoRazao = 0
+        } else {
+            msg_razao.innerHTML = ""
+            permissaoRazao = 1
+        }
+
+
+        // VALIDAÇÃO TOTAL
+        if( permissaoGmail == 1 && permissaoSenha == 1 && permissaoConfirmaSenha == 1 &&
+        permissaoCNPJ == 1 && permissaoCEP == 1 && permissaoResponsavel == 1 &&
+        permissaoRamal == 1 && permissaoNumeroResidencial == 1 && permissaoResponsavel == 1 && permissaoRazao == 1){
+            
+        }
+        else{
+            alert("preencha corretamente os campos que contenham *")
+        }
+    }
+</script>

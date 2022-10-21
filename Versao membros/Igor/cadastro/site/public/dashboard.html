@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assetsDashboard/img/logo-icon.png">
+    <link rel="stylesheet" href="assetsDashboard/css/dashboard.css">
+    <title>Canvi | Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href=""><img src="assetsDashboard/img/logo.jpg" alt="LOGO"></a>
+            <div class="itens">
+                <ul class="list">
+                    <li><a href="">sair</a></li>
+                </ul>
+                <span class="nome-empresa">Nome Empresa</span>
+                <img src="assetsDashboard/img/usuario.png" alt="">
+            </div>
+        </nav>
+    </header>
+    <div class="all-cards">
+        <span class="text-select">Selecione o canavial para visualização:</span>
+        <select class="select" name="#" id="select_1" onchange="MudaPlantacao()">
+            <option value="todos" selected>Todos</option>
+            <option value="saoPaulo">São Paulo</option>
+            <option value="matoGrosso">Mato Grosso</option>
+            <option value="rioPreto">Rio Preto</option>
+        </select>
+        <div class="cards">
+            <div class="primary-card">
+                <h2>IDEAL</h2>
+                <span>Até 10</span>
+            </div>
+            <div class="second-card">
+                <h2>ALERTA</h2>
+                <span>Entre 11 e 15</span>
+            </div>
+            <div class="third-card">
+                <h2>EMERGÊNCIA</h2>
+                <span>Maior que 16</span>
+            </div>
+        </div>
+        <section class="all-dashboard-cards">
+            
+            <div class="dashboard-cards" onclick="telaGrafico()">
+
+                <div class="card" id="cardMatoGrosso1">
+                    <center>
+                        <h2>Hectare 2 -</h2>
+                        <span id="id-plantation">Mato Grosso</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-2 open">19</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-2 open">23</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardSaoPaulo1" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 1 -</h2>
+                        <span id="id-plantation"> São Paulo</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-2 open">17</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-3 open">14</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardSaoPaulo2" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 2 -</h2>
+                        <span id="id-plantation"> São Paulo</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-2 open">17</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-3 open">11</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardRioPreto3" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 3 -</h2>
+                        <span id="id-plantation">Rio Preto</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-3 open">15</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-3 open">12</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardMatoGrosso2" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 1 -</h2>
+                        <span id="id-plantation"> Mato Grosso</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-3 open">15</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-1 open">10</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardRioPreto1" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 1 -</h2>
+                        <span id="id-plantation">Rio Preto</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-1 open">8</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-1 open">3</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardRioPreto2" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 2 -</h2>
+                        <span id="id-plantation">Rio Preto</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-1 open">5</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-1 open">4</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="card" id="cardSaoPaulo3" onclick="telaGrafico()">
+                    <center>
+                        <h2>Hectare 3 -</h2>
+                        <span id="id-plantation">São Paulo</span>
+                    </center>
+                    <div class="general-card">
+                        <div class="sub-card-1">
+                            <span>Quantidade <br> de variação <br> temperatura</span>
+                            <button class="btn-sub-card-1 open">4</button>
+                        </div>
+                        <div class="sub-card-2">
+                            <span>Quantidade <br> de variação <br> umidade</span>
+                            <button class="btn-sub-card-1 open">2</button>
+                        </div>
+                    </div>
+                </div>
+
+     
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <span>Todos os direitos reservados ©</span>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    var saoPaulo1= document.querySelector("#cardSaoPaulo1")
+    var saoPaulo2= document.querySelector("#cardSaoPaulo2")
+    var saoPaulo3= document.querySelector("#cardSaoPaulo3")
+    
+    var rioPreto1 = document.querySelector("#cardRioPreto1")
+    var rioPreto2 = document.querySelector("#cardRioPreto2")
+    var rioPreto3 = document.querySelector("#cardRioPreto3")
+
+    var matogrosso1 = document.querySelector("#cardMatoGrosso1")
+    var matogrosso2 = document.querySelector("#cardMatoGrosso2")
+
+    var caixaCards= document.querySelector(".dashboard-cards")
+    function MudaPlantacao(){
+
+        var plantacao = select_1.value
+        if(plantacao=='saoPaulo'){
+            Limpar()
+            saoPaulo1.style.display="block"
+            saoPaulo2.style.display="block"
+            saoPaulo3.style.display="block"
+        }
+        if(plantacao=='todos'){
+            Limpar()
+            saoPaulo1.style.display="block"
+        saoPaulo2.style.display="block"
+        saoPaulo3.style.display="block"
+
+        rioPreto1.style.display="block"
+        rioPreto2.style.display="block"
+        rioPreto3.style.display="block"
+
+        matogrosso1.style.display="block"
+        matogrosso2.style.display="block"
+        }
+        if(plantacao=='matoGrosso'){
+            Limpar()
+        matogrosso1.style.display="block"
+        matogrosso2.style.display="block"
+        }
+        if(plantacao=='rioPreto'){
+            Limpar()
+        rioPreto1.style.display="block"
+        rioPreto2.style.display="block"
+        rioPreto3.style.display="block"
+        }
+    }
+
+    function Limpar(){
+        saoPaulo1.style.display="none"
+        saoPaulo2.style.display="none"
+        saoPaulo3.style.display="none"
+
+        rioPreto1.style.display="none"
+        rioPreto2.style.display="none"
+        rioPreto3.style.display="none"
+
+        matogrosso1.style.display="none"
+        matogrosso2.style.display="none"
+
+
+    }
+
+    function telaGrafico() {
+        window.location.href = `depois/dashboard.html`
+    }
+</script>
+
+
+
+
+
+
+
+
+
