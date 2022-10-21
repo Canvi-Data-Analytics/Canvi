@@ -1,93 +1,122 @@
-* {
-  margin-top: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
-html{
-  font-family: 'Arial', Helvetica, sans-serif;
+.all-container{
+    display: flex;
 }
 
-.containerPai {
-  width: 100%;
-  height: 80%;
-  padding-right: 15px;
-  padding-left: 15px;
+section.bg .bg-img{
+    height: 100vh;
+    width: 100%;
+    background-image: url('./assets/canavial.jpg');
+    background-size: cover;
+    background-position: -450px ;
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
 }
 
-.linhaFilho {
-  display: flex;
-  flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+section.bg {
+    height: 100vh;
+    width: 45%;
 }
 
-.containerPai .linhaFilho p{
-  max-width: 50%;
-}
-.containerPai .linhaFilho p{
-  display: flex;
-  margin-left: 70%;
-}
-.coluna-50{
-  max-width: 50%;
+section.form{
+    height: 100vh;
+    width: 55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
 }
 
-.img {
-  background-image: url(./Foto.png);
-  height: 656px;
-  width: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+section.form .container{
+    display: flex;
+    flex-direction: column;
+
 }
 
-.colunas {
-  width: 46%;
-  display: flex;
-  flex-direction: column;
+section.form .container img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+    align-self: center;
 }
 
-.form{
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  gap: 70px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding: 30px 30px;
+.title h1{
+    color: #5A9C67;
+    font-weight: bolder;
+    font-size: 22px;
 }
 
-.form input{
-  display: block;
-  padding: 6px 12px;
-  border: none;
-  border-bottom: 2px solid #5A9C67;
-  overflow: hidden;
+.title h4{
+    font-weight: 700;
+    color: darkgray;
+    font-size: small;
 }
 
-.form label{
-  padding-bottom: 1rem;
+section.form .container .inputs{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.form textarea:focus, input:focus, select:focus {
-  outline: 0;
-} 
-
-.textoForm{
-  text-align: center;
-  margin-top: 30px;
-  overflow: hidden;
+section.form .container .inputs span{
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.btncriar{
-  width: 30%;
-  margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: #5A9C67;
-  color: white;
-  border-radius: 8px;
-  padding: 8px 8px 8px 8px;
-  border-color: #5A9C67;
+section.form .container .inputs input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: #5A9C67 1px solid;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.container .btn {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 150px;
+    border-radius: 10px;
+    border: none;
+    background-color: #5A9C67;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;;
+}
+
+button:hover{
+    background-color: #3f9b50;
+}
+
+button:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+section.form .container .new{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+section.form .container .new span a{
+    text-decoration: none;
+    text-decoration: underline;;
+    color: #5A9C67;
+    font-weight: lighter;;
+    font-size: 12px;
 }
